@@ -70,6 +70,7 @@ public class morexfood {
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peaSeed), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.asparagusSeed), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.agaricusSeed), 10);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.riceSeed), 10);
 		
 	}
 	
