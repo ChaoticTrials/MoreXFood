@@ -7,10 +7,12 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModBlocks {
 	
 	public static BlockCropPea cropPea = new BlockCropPea();
+	public static BlockCropAsparagus cropAsparagus = new BlockCropAsparagus();
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
-				cropPea
+				cropPea,
+				cropAsparagus
 		);
 		
 	}
