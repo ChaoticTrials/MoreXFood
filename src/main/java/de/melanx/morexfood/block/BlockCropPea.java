@@ -22,5 +22,5 @@ public class BlockCropPea extends BlockCrops {
 	protected Item getCrop() {
 		return ModItems.pea;
 	}
-	
+
 }
