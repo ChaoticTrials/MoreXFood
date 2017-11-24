@@ -2,7 +2,6 @@ package de.melanx.morexfood;
 
 import de.melanx.morexfood.block.ModBlocks;
 import de.melanx.morexfood.client.morexfoodTab;
-import de.melanx.morexfood.item.ItemPeaSeed;
 import de.melanx.morexfood.item.ModItems;
 import de.melanx.morexfood.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -26,7 +25,6 @@ public class morexfood {
 	public static final String MODID = "morexfood";
 	public static final String VERSION = "0.1";
 	public static final morexfoodTab creativeTab = new morexfoodTab();
-	public static final ItemPeaSeed ItemPeaSeed = new ItemPeaSeed();
 	
 	@SidedProxy(clientSide = "de.melanx.morexfood.proxy.ClientProxy", serverSide = "de.melanx.morexfood.proxy.CommonProxy")
 	public static CommonProxy proxy;
@@ -68,7 +66,7 @@ public class morexfood {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 		
-		MinecraftForge.addGrassSeed(new ItemStack(ItemPeaSeed), 10);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peaSeed), 10);
 		
 	}
 	

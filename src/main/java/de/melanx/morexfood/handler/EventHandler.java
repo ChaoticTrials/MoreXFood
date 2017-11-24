@@ -1,14 +1,16 @@
 package de.melanx.morexfood.handler;
 
-//import net.minecraftforge.event.world.BlockEvent;
-//import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import de.melanx.morexfood.item.ItemPeaSeed;
+import net.minecraftforge.event.world.BlockEvent.NeighborNotifyEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-// totally failure, just ignore
-// public class EventHandler {
-//	
-//    @SubscribeEvent
-//    public void onHarvestBlocks(BlockEvent.HarvestDropsEvent event) {
-//    	
-//    }
-//
-//}
+public class EventHandler {
+	
+    @SubscribeEvent
+    public void onNeighborNotify(NeighborNotifyEvent event) {
+    	
+
+    	
+    }
+
+}
