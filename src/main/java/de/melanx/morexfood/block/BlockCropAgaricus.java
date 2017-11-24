@@ -8,11 +8,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
 
-public class BlockCropChampignon extends BlockCrops {
+public class BlockCropAgaricus extends BlockCrops {
 
-	public BlockCropChampignon() {
-		setUnlocalizedName("crop_champignon");
-		setRegistryName("crop_champignon");
+	public BlockCropAgaricus() {
+		setUnlocalizedName("crop_agaricus");
+		setRegistryName("crop_agaricus");
 		setCreativeTab(morexfood.creativeTab);
 	}
 	
@@ -23,12 +23,12 @@ public class BlockCropChampignon extends BlockCrops {
 	
 	@Override
 	protected Item getSeed() {
-		return ModItems.champignonSeed;
+		return ModItems.agaricusSeed;
 	}
 	
 	@Override
 	protected Item getCrop() {
-		return ModItems.champignon;
+		return ModItems.agaricus;
 	}
 
 }

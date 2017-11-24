@@ -13,8 +13,8 @@ public class ModItems {
    public static ItemCarrotPieces carrotPieces = new ItemCarrotPieces();
    public static ItemAsparagus asparagus = new ItemAsparagus();
    public static ItemAsparagusSeed asparagusSeed = new ItemAsparagusSeed();
-   public static ItemChampignon champignon = new ItemChampignon();
-   public static ItemChampignonSeed champignonSeed = new ItemChampignonSeed();
+   public static ItemAgaricus agaricus = new ItemAgaricus();
+   public static ItemAgaricusSeed agaricusSeed = new ItemAgaricusSeed();
 
    public static void register(IForgeRegistry<Item> registry) {
        registry.registerAll(
@@ -24,8 +24,8 @@ public class ModItems {
                carrotPieces,
                asparagus,
                asparagusSeed,
-               champignon,
-               champignonSeed
+               agaricus,
+               agaricusSeed
        );
    }
   
@@ -36,7 +36,7 @@ public class ModItems {
        carrotPieces.registerItemModel();
        asparagus.registerItemModel();
        asparagusSeed.registerItemModel();
-       champignon.registerItemModel();
-       champignonSeed.registerItemModel();
+       agaricus.registerItemModel();
+       agaricusSeed.registerItemModel();
    }
 }

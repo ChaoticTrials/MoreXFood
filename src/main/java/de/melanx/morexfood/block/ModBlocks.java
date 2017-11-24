@@ -8,11 +8,13 @@ public class ModBlocks {
 	
 	public static BlockCropPea cropPea = new BlockCropPea();
 	public static BlockCropAsparagus cropAsparagus = new BlockCropAsparagus();
+	public static BlockCropAgaricus cropAgaricus = new BlockCropAgaricus();
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				cropPea,
-				cropAsparagus
+				cropAsparagus,
+				cropAgaricus
 		);
 		
 	}
