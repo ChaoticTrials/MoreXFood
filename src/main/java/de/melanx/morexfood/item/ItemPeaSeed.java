@@ -6,7 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSeeds;
 
 public class ItemPeaSeed extends ItemSeeds {
-	
+		
 	public ItemPeaSeed() {
 		super(ModBlocks.cropPea, Blocks.FARMLAND);
 		setUnlocalizedName("pea_seed");
