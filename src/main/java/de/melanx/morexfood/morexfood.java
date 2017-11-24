@@ -66,8 +66,10 @@ public class morexfood {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 		
+	//	MinecraftForge.addGrassSeed(new ItemStack(ModItems.Seed), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peaSeed), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.asparagusSeed), 10);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.champignonSeed), 10);
 		
 	}
 	
