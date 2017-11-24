@@ -10,12 +10,14 @@ public class ModItems {
    public static ItemBase itemKnife = new ItemBase("knife");
    public static ItemPeaSeed peaSeed = new ItemPeaSeed();
    public static ItemPea pea = new ItemPea();
+   public static ItemCarrotPieces carrotPieces = new ItemCarrotPieces();
 
    public static void register(IForgeRegistry<Item> registry) {
        registry.registerAll(
                itemKnife,
                peaSeed,
-               pea
+               pea,
+               carrotPieces
        );
    }
   
@@ -23,5 +25,6 @@ public class ModItems {
        itemKnife.registerItemModel();
        peaSeed.registerItemModel();
        pea.registerItemModel();
+       carrotPieces.registerItemModel();
    }
 }
