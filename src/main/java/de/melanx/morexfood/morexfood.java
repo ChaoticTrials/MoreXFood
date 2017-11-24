@@ -26,6 +26,7 @@ public class morexfood {
 	public static final String MODID = "morexfood";
 	public static final String VERSION = "0.1";
 	public static final morexfoodTab creativeTab = new morexfoodTab();
+	public static final ItemPeaSeed ItemPeaSeed = new ItemPeaSeed();
 	
 	@SidedProxy(clientSide = "de.melanx.morexfood.proxy.ClientProxy", serverSide = "de.melanx.morexfood.proxy.CommonProxy")
 	public static CommonProxy proxy;
@@ -67,7 +68,7 @@ public class morexfood {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 		
-		MinecraftForge.addGrassSeed(new ItemStack(ItemPeaSeed), 10); //it's now shown as wrong.. :/
+		MinecraftForge.addGrassSeed(new ItemStack(ItemPeaSeed), 10);
 		
 	}
 	
@@ -76,5 +77,4 @@ public class morexfood {
 		System.out.println(MODID + " is finished.");		
 	}
 	
->>>>>>> 840cdfc3bf2e3d68cf54c8a86457ceb08334cb2c
 }
