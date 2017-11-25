@@ -17,6 +17,14 @@ public class ModItems {
    public static ItemAgaricusSeed agaricusSeed = new ItemAgaricusSeed();
    public static ItemRice rice = new ItemRice();
    public static ItemRiceSeed riceSeed = new ItemRiceSeed();
+   public static ItemMixedVegetables mixedVegetables = new ItemMixedVegetables();
+   public static ItemAsparagusPieces asparagusPieces = new ItemAsparagusPieces();
+   public static ItemChickenPieces chickenPieces = new ItemChickenPieces();
+   public static ItemRawChickenFricassee rawChickenFricassee = new ItemRawChickenFricassee();
+   public static ItemChickenFricassee chickenFricassee = new ItemChickenFricassee();
+   public static ItemRawChickenFricasseeRice rawChickenFricasseeRice = new ItemRawChickenFricasseeRice();
+   public static ItemChickenFricasseeRice chickenFricasseeRice = new ItemChickenFricasseeRice();
+   public static ItemChickenFricasseeFoodFinjaEdition specialChickenFricassee = new ItemChickenFricasseeFoodFinjaEdition();
 
    public static void register(IForgeRegistry<Item> registry) {
        registry.registerAll(
@@ -29,7 +37,15 @@ public class ModItems {
                agaricus,
                agaricusSeed,
                rice,
-               riceSeed
+               riceSeed,
+               mixedVegetables,
+               asparagusPieces,
+               chickenPieces,
+               rawChickenFricassee,
+               chickenFricassee,
+               rawChickenFricasseeRice,
+               chickenFricasseeRice,
+               specialChickenFricassee
        );
    }
   
@@ -44,5 +60,13 @@ public class ModItems {
        agaricusSeed.registerItemModel();
        rice.registerItemModel();
        riceSeed.registerItemModel();
+       mixedVegetables.registerItemModel();
+       asparagusPieces.registerItemModel();
+       chickenPieces.registerItemModel();
+       rawChickenFricassee.registerItemModel();
+       chickenFricassee.registerItemModel();
+       rawChickenFricasseeRice.registerItemModel();
+       chickenFricasseeRice.registerItemModel();
+       specialChickenFricassee.registerItemModel();
    }
 }
