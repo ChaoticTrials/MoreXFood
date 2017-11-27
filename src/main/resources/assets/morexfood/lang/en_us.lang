@@ -1,0 +1,33 @@
+# General
+itemGroup.More XFood=More XFood
+
+# Seeds
+item.pea_seed.name=Peas Seeds
+item.asparagus_seed.name=Asparagus Seeds
+item.agaricus_seed.name=Agaricus Seeds
+item.rice_seed.name=Rice Seeds
+
+# Food
+item.pea.name=Peas
+item.asparagus.name=Asparagus
+item.agaricus.name=Agaricus
+item.rice.name=Rice
+item.carrot_pieces.name=Carrot Pieces
+item.mixed_vegetables.name=Mixed Vegetables
+item.asparagus_pieces.name=Asparagus Pieces
+item.chicken_pieces.name=Chicken Pieces
+item.raw_chicken_fricassee.name=Raw Chicken Fricassee
+item.chicken_fricassee.name=Chicken Fricassee
+item.raw_chicken_fricassee_rice.name=Raw Chicken Fricassee with Rice
+item.chicken_fricassee_rice.name=Chicken Fricassee with Rice
+item.chicken_fricassee_special.name=Chicken Fricassee à la FoodFinja
+item.raw_chicken_fricassee_special.name=Chicken Fricassee à la FoodFinja
+
+# Items 
+item.knife.name=Knife
+
+# Blocks
+tile.crop_pea.name=Peas
+tile.crop_asparagus.name=Asparagus
+tile.crop_agaricus.name=Agaricus
+tile.crop_rice.name=Rice

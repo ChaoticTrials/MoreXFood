@@ -25,6 +25,7 @@ public class ModItems {
    public static ItemRawChickenFricasseeRice rawChickenFricasseeRice = new ItemRawChickenFricasseeRice();
    public static ItemChickenFricasseeRice chickenFricasseeRice = new ItemChickenFricasseeRice();
    public static ItemChickenFricasseeFoodFinjaEdition specialChickenFricassee = new ItemChickenFricasseeFoodFinjaEdition();
+   public static ItemRawChickenFricasseeFoodFinjaEdition specialRawChickenFricassee = new ItemRawChickenFricasseeFoodFinjaEdition();
 
    public static void register(IForgeRegistry<Item> registry) {
        registry.registerAll(
@@ -45,7 +46,8 @@ public class ModItems {
                chickenFricassee,
                rawChickenFricasseeRice,
                chickenFricasseeRice,
-               specialChickenFricassee
+               specialChickenFricassee,
+               specialRawChickenFricassee
        );
    }
   
@@ -68,5 +70,6 @@ public class ModItems {
        rawChickenFricasseeRice.registerItemModel();
        chickenFricasseeRice.registerItemModel();
        specialChickenFricassee.registerItemModel();
+       specialRawChickenFricassee.registerItemModel();
    }
 }
