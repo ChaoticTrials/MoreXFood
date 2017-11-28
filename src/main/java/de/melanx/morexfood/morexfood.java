@@ -2,7 +2,7 @@ package de.melanx.morexfood;
 
 import de.melanx.morexfood.block.ModBlocks;
 import de.melanx.morexfood.client.morexfoodTab;
-import de.melanx.morexfood.item.ModItems;
+import de.melanx.morexfood.items.ModItems;
 import de.melanx.morexfood.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

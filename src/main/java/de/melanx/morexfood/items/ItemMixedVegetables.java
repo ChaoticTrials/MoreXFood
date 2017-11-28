@@ -1,4 +1,4 @@
-package de.melanx.morexfood.item;
+package de.melanx.morexfood.items;
 
 import de.melanx.morexfood.morexfood;
 import net.minecraft.item.ItemFood;

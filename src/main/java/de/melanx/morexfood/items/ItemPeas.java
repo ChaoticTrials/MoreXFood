@@ -1,24 +1,24 @@
-package de.melanx.morexfood.item;
+package de.melanx.morexfood.items;
 
 import de.melanx.morexfood.morexfood;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemPea extends ItemFood {
+public class ItemPeas extends ItemFood {
 	
-	public ItemPea() {
+	public ItemPeas() {
 		super(2, 0.6f, false);
-		setUnlocalizedName("pea");
-		setRegistryName("pea");
+		setUnlocalizedName("peas");
+		setRegistryName("peas");
 		setCreativeTab(morexfood.creativeTab);
 	}
 	
 	public void registerItemModel() {
-		morexfood.proxy.registerItemRenderer(this, 0, "pea");
+		morexfood.proxy.registerItemRenderer(this, 0, "peas");
 	}
 	
 	public void initOreDict() {
-		OreDictionary.registerOre("cropPea", this);
+		OreDictionary.registerOre("cropPeas", this);
 	}
 
 }

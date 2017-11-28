@@ -2,13 +2,13 @@
 itemGroup.More XFood=More XFood
 
 # Seeds
-item.pea_seed.name=Erbsensamen
+item.peas_seed.name=Erbsensamen
 item.asparagus_seed.name=Spargelsamen
 item.agaricus_seed.name=Champignonsamen
 item.rice_seed.name=Reissamen
 
 # Food / Essen
-item.pea.name=Erbsen
+item.peas.name=Erbsen
 item.asparagus.name=Spargel
 item.agaricus.name=Champignon
 item.rice.name=Reis
@@ -27,7 +27,7 @@ item.raw_chicken_fricassee_special.name=Rohes Hühnerfrikassee à la FoodFinja
 item.knife.name=Messer
 
 # Blocks / Blöcke
-tile.crop_pea.name=Erbsen
+tile.crop_peas.name=Erbsen
 tile.crop_asparagus.name=Spargel
 tile.crop_agaricus.name=Champignon
 tile.crop_rice.name=Reis

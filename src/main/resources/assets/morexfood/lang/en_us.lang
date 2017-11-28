@@ -2,13 +2,13 @@
 itemGroup.More XFood=More XFood
 
 # Seeds
-item.pea_seed.name=Peas Seeds
+item.peas_seed.name=Peas Seeds
 item.asparagus_seed.name=Asparagus Seeds
 item.agaricus_seed.name=Agaricus Seeds
 item.rice_seed.name=Rice Seeds
 
 # Food
-item.pea.name=Peas
+item.peas.name=Peas
 item.asparagus.name=Asparagus
 item.agaricus.name=Agaricus
 item.rice.name=Rice
@@ -27,7 +27,7 @@ item.raw_chicken_fricassee_special.name=Chicken Fricassee à la FoodFinja
 item.knife.name=Knife
 
 # Blocks
-tile.crop_pea.name=Peas
+tile.crop_peas.name=Peas
 tile.crop_asparagus.name=Asparagus
 tile.crop_agaricus.name=Agaricus
 tile.crop_rice.name=Rice

@@ -1,7 +1,7 @@
 package de.melanx.morexfood.block;
 
 import de.melanx.morexfood.morexfood;
-import de.melanx.morexfood.item.ModItems;
+import de.melanx.morexfood.items.ModItems;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;

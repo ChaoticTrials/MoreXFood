@@ -1,6 +1,6 @@
 package de.melanx.morexfood.client;
 
-import de.melanx.morexfood.item.ModItems;
+import de.melanx.morexfood.items.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
@@ -14,7 +14,7 @@ public class morexfoodTab extends CreativeTabs {
 	
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(ModItems.pea);
+		return new ItemStack(ModItems.peas);
 	}
 
 }

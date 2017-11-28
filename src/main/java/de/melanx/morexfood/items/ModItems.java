@@ -1,15 +1,14 @@
-package de.melanx.morexfood.item;
+package de.melanx.morexfood.items;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
-import de.melanx.morexfood.item.ItemPeaSeed;
 
 public class ModItems {
 
    // public static ItemBase name = new ItemBase("name");
    public static ItemBase itemKnife = new ItemBase("knife");
-   public static ItemPeaSeed peaSeed = new ItemPeaSeed();
-   public static ItemPea pea = new ItemPea();
+   public static ItemPeasSeed peaSeed = new ItemPeasSeed();
+   public static ItemPeas peas = new ItemPeas();
    public static ItemCarrotPieces carrotPieces = new ItemCarrotPieces();
    public static ItemAsparagus asparagus = new ItemAsparagus();
    public static ItemAsparagusSeed asparagusSeed = new ItemAsparagusSeed();
@@ -31,8 +30,7 @@ public class ModItems {
        registry.registerAll(
                itemKnife,
                peaSeed,
-               pea,
-               carrotPieces,
+               peas,
                asparagus,
                asparagusSeed,
                agaricus,
@@ -41,20 +39,21 @@ public class ModItems {
                riceSeed,
                mixedVegetables,
                asparagusPieces,
+               carrotPieces,
                chickenPieces,
                rawChickenFricassee,
-               chickenFricassee,
                rawChickenFricasseeRice,
+               specialRawChickenFricassee,
+               chickenFricassee,
                chickenFricasseeRice,
-               specialChickenFricassee,
-               specialRawChickenFricassee
+               specialChickenFricassee
        );
    }
   
    public static void registerModels() {
        itemKnife.registerItemModel();
        peaSeed.registerItemModel();
-       pea.registerItemModel();
+       peas.registerItemModel();
        carrotPieces.registerItemModel();
        asparagus.registerItemModel();
        asparagusSeed.registerItemModel();
