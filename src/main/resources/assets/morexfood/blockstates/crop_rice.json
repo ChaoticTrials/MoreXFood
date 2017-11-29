@@ -1,0 +1,55 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "minecraft:crop",
+        "textures": {
+        "crop": "morexfood:blocks/rice/crop_rice_1"
+        }
+    },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{}],
+        "age": {
+            "0": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_1"
+                }
+            },
+            "1": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_1"
+                }
+            },
+            "2": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_1"
+                }
+            },
+            "3": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_2"
+                }
+            },
+            "4": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_2"
+                }
+            },
+            "5": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_3"
+                }
+            },
+            "6": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_3"
+                }
+            },
+            "7": {
+                "textures": {
+                    "crop": "morexfood:blocks/rice/crop_rice_4"
+                }
+            }
+        }
+    }
+}
