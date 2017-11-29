@@ -4,7 +4,7 @@ itemGroup.More XFood=More XFood
 # Seeds
 item.peas_seed.name=Peas Seeds
 item.asparagus_seed.name=Asparagus Seeds
-item.agaricus_seed.name=Agaricus Seeds
+item.agaricus_seed.name=Agaricus Spores
 item.rice_seed.name=Rice Seeds
 
 # Food

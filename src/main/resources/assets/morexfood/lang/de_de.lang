@@ -4,7 +4,7 @@ itemGroup.More XFood=More XFood
 # Seeds
 item.peas_seed.name=Erbsensamen
 item.asparagus_seed.name=Spargelsamen
-item.agaricus_seed.name=Champignonsamen
+item.agaricus_seed.name=Champignonsporen
 item.rice_seed.name=Reissamen
 
 # Food / Essen
