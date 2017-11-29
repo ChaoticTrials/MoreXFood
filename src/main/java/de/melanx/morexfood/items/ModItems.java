@@ -7,6 +7,10 @@ public class ModItems {
 
    // public static ItemBase name = new ItemBase("name");
    public static ItemBase itemKnife = new ItemBase("knife");
+   static {
+	   itemKnife.setContainerItem(itemKnife);
+	   itemKnife.setMaxStackSize(1);
+   }
    public static ItemPeasSeed peaSeed = new ItemPeasSeed();
    public static ItemPeas peas = new ItemPeas();
    public static ItemCarrotPieces carrotPieces = new ItemCarrotPieces();
