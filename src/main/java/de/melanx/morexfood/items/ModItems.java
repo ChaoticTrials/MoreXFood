@@ -11,7 +11,7 @@ public class ModItems {
 	   itemKnife.setContainerItem(itemKnife);
 	   itemKnife.setMaxStackSize(1);
    }
-   public static ItemPeasSeed peaSeed = new ItemPeasSeed();
+   public static ItemPeasSeed peasSeed = new ItemPeasSeed();
    public static ItemPeas peas = new ItemPeas();
    public static ItemCarrotPieces carrotPieces = new ItemCarrotPieces();
    public static ItemAsparagus asparagus = new ItemAsparagus();
@@ -33,8 +33,8 @@ public class ModItems {
    public static void register(IForgeRegistry<Item> registry) {
        registry.registerAll(
                itemKnife,
-               peaSeed,
                peas,
+               peasSeed,
                asparagus,
                asparagusSeed,
                agaricus,
@@ -56,7 +56,7 @@ public class ModItems {
   
    public static void registerModels() {
        itemKnife.registerItemModel();
-       peaSeed.registerItemModel();
+       peasSeed.registerItemModel();
        peas.registerItemModel();
        carrotPieces.registerItemModel();
        asparagus.registerItemModel();

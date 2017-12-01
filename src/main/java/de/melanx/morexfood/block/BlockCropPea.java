@@ -23,7 +23,7 @@ public class BlockCropPea extends BlockCrops {
 	
 	@Override
 	protected Item getSeed() {
-		return ModItems.peaSeed;
+		return ModItems.peasSeed;
 	}
 	
 	@Override

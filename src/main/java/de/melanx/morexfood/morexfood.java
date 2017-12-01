@@ -67,7 +67,7 @@ public class morexfood {
 	public void init(FMLInitializationEvent event) {
 		
 	//	MinecraftForge.addGrassSeed(new ItemStack(ModItems.Seed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peaSeed), 10);
+		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peasSeed), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.asparagusSeed), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.agaricusSeed), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.riceSeed), 10);
