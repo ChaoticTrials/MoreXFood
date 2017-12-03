@@ -1,0 +1,11 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "morexfood:agaricus"
+        }
+     ],
+     "result": {
+        "item": "morexfood:agaricus_seed"
+     }
+}

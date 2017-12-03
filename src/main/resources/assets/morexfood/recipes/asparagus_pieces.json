@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "morexfood:knife"
+        },
+        {
+            "item": "morexfood:asparagus"
+        }
+     ],
+     "result": {
+        "item": "morexfood:asparagus_pieces",
+        "count": 2
+     }
+}

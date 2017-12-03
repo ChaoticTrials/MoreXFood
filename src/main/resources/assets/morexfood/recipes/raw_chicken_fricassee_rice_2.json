@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "morexfood:raw_chicken_fricassee"
+        },
+        {
+            "item": "morexfood:rice"
+        }
+     ],
+     "result": {
+        "item": "morexfood:raw_chicken_fricassee_rice"
+     }
+}
