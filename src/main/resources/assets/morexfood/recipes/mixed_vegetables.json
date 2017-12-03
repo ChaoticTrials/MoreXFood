@@ -1,11 +1,13 @@
 {
-    "type": "minecraft:crafting_shapeless",
+    "type": "forge:ore_shapeless",
     "ingredients": [
         {
-            "item": "morexfood:carrot_pieces"
+            "type": "forge:ore_dict",
+            "ore": "piecesCarrot"
         },
         {
-            "item": "morexfood:peas"
+            "type": "forge:ore_dict",
+            "ore": "cropPeas"
         }
      ],
      "result": {

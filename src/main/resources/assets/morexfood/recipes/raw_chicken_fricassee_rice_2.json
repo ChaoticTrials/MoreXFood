@@ -1,11 +1,13 @@
 {
-    "type": "minecraft:crafting_shapeless",
+    "type": "forge:ore_shapeless",
     "ingredients": [
         {
-            "item": "morexfood:raw_chicken_fricassee"
+            "type": "forge:ore_dict",
+            "ore": "rawChickenFricassee"
         },
         {
-            "item": "morexfood:rice"
+            "type": "forge:ore_dict",
+            "ore": "cropRice"
         }
      ],
      "result": {

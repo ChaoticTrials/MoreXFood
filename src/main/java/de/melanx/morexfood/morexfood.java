@@ -2,7 +2,6 @@ package de.melanx.morexfood;
 
 import de.melanx.morexfood.block.ModBlocks;
 import de.melanx.morexfood.client.morexfoodTab;
-import de.melanx.morexfood.drops.GrassDrops;
 import de.melanx.morexfood.items.ModItems;
 import de.melanx.morexfood.proxy.CommonProxy;
 import de.melanx.morexfood.recipe.ModRecipes;
@@ -65,7 +64,6 @@ public class morexfood {
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		GrassDrops.init();
 		ModRecipes.init();		
 	}
 	
