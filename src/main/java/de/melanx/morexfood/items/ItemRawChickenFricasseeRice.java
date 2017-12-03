@@ -4,6 +4,7 @@ import de.melanx.morexfood.morexfood;
 import net.minecraft.item.ItemFood;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemRawChickenFricasseeRice extends ItemFood {
 	
@@ -21,4 +22,8 @@ public class ItemRawChickenFricasseeRice extends ItemFood {
 		morexfood.proxy.registerItemRenderer(this, 0, "raw_chicken_fricassee_rice");
 	}
 
+	public void initOreDict() {
+		OreDictionary.registerOre("rawChickenFricasseeRice", this);
+	}
+	
 }
