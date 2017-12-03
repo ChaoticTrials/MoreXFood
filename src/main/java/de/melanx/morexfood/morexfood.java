@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class morexfood {
 	
 	public static final String MODID = "morexfood";
-	public static final String VERSION = "0.1";
+	public static final String VERSION = "0.2";
 	public static final morexfoodTab creativeTab = new morexfoodTab();
 	
 	@SidedProxy(clientSide = "de.melanx.morexfood.proxy.ClientProxy", serverSide = "de.melanx.morexfood.proxy.CommonProxy")
