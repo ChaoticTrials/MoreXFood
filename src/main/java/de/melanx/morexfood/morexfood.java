@@ -2,13 +2,13 @@ package de.melanx.morexfood;
 
 import de.melanx.morexfood.block.ModBlocks;
 import de.melanx.morexfood.client.morexfoodTab;
+import de.melanx.morexfood.drops.GrassDrops;
 import de.melanx.morexfood.items.ModItems;
 import de.melanx.morexfood.proxy.CommonProxy;
+import de.melanx.morexfood.recipe.ModRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModMetadata;
@@ -65,13 +65,8 @@ public class morexfood {
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		
-	//	MinecraftForge.addGrassSeed(new ItemStack(ModItems.Seed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peasSeed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.asparagusSeed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.agaricusSeed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.riceSeed), 10);
-		
+		GrassDrops.init();
+		ModRecipes.init();		
 	}
 	
 	@Mod.EventHandler
