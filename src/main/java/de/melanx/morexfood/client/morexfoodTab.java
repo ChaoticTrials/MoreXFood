@@ -14,7 +14,7 @@ public class morexfoodTab extends CreativeTabs {
 	
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(ModItems.peas);
+		return new ItemStack(ModItems.specialChickenFricassee);
 	}
 
 }
