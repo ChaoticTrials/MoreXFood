@@ -18,7 +18,7 @@ public class ItemMixedVegetables extends ItemFood {
 	}
 	
 	public void initOreDict() {
-		OreDictionary.registerOre("itemMixedVegatables", this);
+		OreDictionary.registerOre("itemMixedVegetables", this);
 	}
 
 }
