@@ -20,6 +20,10 @@
         {
             "type": "forge:ore_dict",
             "ore": "cropRice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllwater"
         }
      ],
      "result": {

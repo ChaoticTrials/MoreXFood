@@ -16,6 +16,10 @@
         {
             "type": "forge:ore_dict",
             "ore": "cropAgaricus"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllwater"
         }
      ],
      "result": {
