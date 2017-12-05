@@ -7,7 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class ItemChickenFricassee extends ItemFood {
 	
 	public ItemChickenFricassee() {
-		super(17, 6.8f, false);
+		super(11, 1.1f, false);
 		setUnlocalizedName("chicken_fricassee");
 		setRegistryName("chicken_fricassee");
 		setCreativeTab(morexfood.creativeTab);
