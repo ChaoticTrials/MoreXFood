@@ -11,7 +11,7 @@ public class ItemChickenPieces extends ItemFood {
 	final Potion potion = Potion.getPotionFromResourceLocation("poison");
 	
 	public ItemChickenPieces() {
-		super(1, 0.4f, false);
+		super(1, 0.2f, false);
 		setUnlocalizedName("chicken_pieces");
 		setRegistryName("chicken_pieces");
 		setCreativeTab(morexfood.creativeTab);

@@ -11,7 +11,7 @@ public class ItemRawChickenFricasseeRice extends ItemFood {
 	final Potion potion = Potion.getPotionFromResourceLocation("poison");
 	
 	public ItemRawChickenFricasseeRice() {
-		super(5, 0.1f, false);
+		super(5, 0.05f, false);
 		setUnlocalizedName("raw_chicken_fricassee_rice");
 		setRegistryName("raw_chicken_fricassee_rice");
 		setCreativeTab(morexfood.creativeTab);

@@ -11,7 +11,7 @@ public class ItemRawChickenFricasseeFoodFinjaEdition extends ItemFood {
 	final Potion potion = Potion.getPotionFromResourceLocation("poison");
 	
 	public ItemRawChickenFricasseeFoodFinjaEdition() {
-		super(4, 0.1f, false);
+		super(4, 0.05f, false);
 		setUnlocalizedName("raw_chicken_fricassee_special");
 		setRegistryName("raw_chicken_fricassee_special");
 		setCreativeTab(morexfood.creativeTab);
