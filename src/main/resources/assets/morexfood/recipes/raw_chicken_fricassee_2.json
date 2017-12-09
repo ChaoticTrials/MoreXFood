@@ -1,0 +1,27 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "itemMixedVegetables"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "piecesAsparagus"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "piecesChicken"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropAgaricus"
+        },
+        {
+            "item": "minecraft:water_bucket"
+        }
+     ],
+     "result": {
+        "item": "morexfood:raw_chicken_fricassee"
+     }
+}
