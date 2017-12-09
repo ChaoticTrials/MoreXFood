@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = morexfood.MODID, version = "0.2", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = "0.2.0.2", name = "More XFood")
 
 public class morexfood {
 	
