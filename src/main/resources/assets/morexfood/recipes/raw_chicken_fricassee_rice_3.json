@@ -15,7 +15,7 @@
         },
         {
             "type": "forge:ore_dict",
-            "ore": "cropAgaricus"
+            "ore": "listAllmushroom"
         },
         {
             "type": "forge:ore_dict",

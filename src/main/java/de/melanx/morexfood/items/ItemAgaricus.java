@@ -19,6 +19,7 @@ public class ItemAgaricus extends ItemFood {
 	
 	public void initOreDict() {
 		OreDictionary.registerOre("cropAgaricus", this);
+		OreDictionary.registerOre("listAllmushroom", this);
 	}
 
 }
