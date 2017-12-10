@@ -18,6 +18,10 @@
             "ore": "cropAgaricus"
         },
         {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
             "item": "minecraft:water_bucket"
         }
      ],

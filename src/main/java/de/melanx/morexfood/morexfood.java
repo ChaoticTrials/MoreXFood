@@ -5,6 +5,7 @@ import de.melanx.morexfood.client.morexfoodTab;
 import de.melanx.morexfood.items.ModItems;
 import de.melanx.morexfood.proxy.CommonProxy;
 import de.melanx.morexfood.recipe.ModRecipes;
+import de.melanx.morexfood.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -15,8 +16,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = morexfood.MODID, version = "0.2.0.2", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = "0.3", name = "More XFood")
 
 public class morexfood {
 	
@@ -50,6 +52,7 @@ public class morexfood {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println(MODID + " is loading");
+		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	}
 	
 	@Mod.EventHandler

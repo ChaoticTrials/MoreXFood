@@ -22,6 +22,7 @@ item.raw_chicken_fricassee_rice.name=Rohes Hühnerfrikassee mit Reis
 item.chicken_fricassee_rice.name=Hühnerfrikassee mit Reis
 item.chicken_fricassee_special.name=Hühnerfrikassee à la FoodFinja
 item.raw_chicken_fricassee_special.name=Rohes Hühnerfrikassee à la FoodFinja
+item.salt.name=Salz
 
 # Items 
 item.knife.name=Messer
@@ -31,3 +32,4 @@ tile.crop_peas.name=Erbsen
 tile.crop_asparagus.name=Spargel
 tile.crop_agaricus.name=Champignon
 tile.crop_rice.name=Reis
+tile.salt_ore.name=Steinsalz

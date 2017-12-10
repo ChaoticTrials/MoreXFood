@@ -20,8 +20,9 @@ item.raw_chicken_fricassee.name=Raw Chicken Fricassee
 item.chicken_fricassee.name=Chicken Fricassee
 item.raw_chicken_fricassee_rice.name=Raw Chicken Fricassee with Rice
 item.chicken_fricassee_rice.name=Chicken Fricassee with Rice
-item.chicken_fricassee_special.name=Chicken Fricassee à la FoodFinja
-item.raw_chicken_fricassee_special.name=Raw Chicken Fricassee à la FoodFinja
+item.chicken_fricassee_special.name=Chicken Fricassee a la FoodFinja
+item.raw_chicken_fricassee_special.name=Raw Chicken Fricassee a la FoodFinja
+item.salt.name=Salt
 
 # Items 
 item.knife.name=Knife
@@ -31,3 +32,4 @@ tile.crop_peas.name=Peas
 tile.crop_asparagus.name=Asparagus
 tile.crop_agaricus.name=Agaricus
 tile.crop_rice.name=Rice
+tile.salt_ore.name=Salt Ore

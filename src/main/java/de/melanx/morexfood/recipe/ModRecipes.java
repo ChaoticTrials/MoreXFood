@@ -17,6 +17,7 @@ public class ModRecipes {
 		ModItems.chickenFricassee.initOreDict();
 		ModItems.chickenFricasseeRice.initOreDict();
 		ModItems.chickenPieces.initOreDict();
+		ModItems.dustSalt.initOreDict();
 		ModItems.mixedVegetables.initOreDict();
 		ModItems.peas.initOreDict();
 		ModItems.rawChickenFricassee.initOreDict();
