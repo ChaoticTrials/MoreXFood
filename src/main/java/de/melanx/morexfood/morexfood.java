@@ -6,9 +6,11 @@ import de.melanx.morexfood.items.ModItems;
 import de.melanx.morexfood.proxy.CommonProxy;
 import de.melanx.morexfood.recipe.ModRecipes;
 import de.melanx.morexfood.world.ModWorldGen;
+import de.melanx.morexfood.world.village.InitCustomCropField;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -18,7 +20,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = morexfood.MODID, version = "0.3", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = "0.4", name = "More XFood")
 
 public class morexfood {
 	
@@ -52,6 +54,7 @@ public class morexfood {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println(MODID + " is loading");
+		InitCustomCropField.init();
 		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	}
 	
