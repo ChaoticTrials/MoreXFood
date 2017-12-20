@@ -21,7 +21,7 @@ public class ModWorldGen implements IWorldGenerator {
 	}
 	
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		generateOre(ModBlocks.oreSalt.getDefaultState(),world, random, chunkX * 16, chunkZ * 16, 0, 50, 4 + random.nextInt(9), 6);
+		generateOre(ModBlocks.oreSalt.getDefaultState(),world, random, chunkX * 16, chunkZ * 16, 0, 128, 4 + random.nextInt(9), 6);
 		
 	}
 

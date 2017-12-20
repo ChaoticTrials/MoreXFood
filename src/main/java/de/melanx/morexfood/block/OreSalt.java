@@ -35,6 +35,7 @@ public class OreSalt extends BlockBase {
 		return amount;
 	}
 	
+	//affected by fortune
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {		
 		if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)) {
