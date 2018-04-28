@@ -11,6 +11,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class OreSalt extends BlockBase {
 	
@@ -54,4 +55,9 @@ public class OreSalt extends BlockBase {
 		super.setCreativeTab(tab);
 		return this;
 	}
+
+	public void initOreDict() {
+		OreDictionary.registerOre("oreSalt", this);
+	}
+
 }

@@ -11,6 +11,7 @@ public class ModItems {
 	   itemKnife.setContainerItem(itemKnife);
 	   itemKnife.setMaxStackSize(1);
    }
+   public static ItemBase iceCubes = new ItemBase("ice_cubes");
    public static ItemOre dustSalt = new ItemOre("salt", "dustSalt");
    public static ItemPeasSeed peasSeed = new ItemPeasSeed();
    public static ItemPeas peas = new ItemPeas();
@@ -30,10 +31,13 @@ public class ModItems {
    public static ItemChickenFricasseeRice chickenFricasseeRice = new ItemChickenFricasseeRice();
    public static ItemChickenFricasseeFoodFinjaEdition specialChickenFricassee = new ItemChickenFricasseeFoodFinjaEdition();
    public static ItemRawChickenFricasseeFoodFinjaEdition specialRawChickenFricassee = new ItemRawChickenFricasseeFoodFinjaEdition();
+   public static ItemIceCream iceCream = new ItemIceCream();
+   public static ItemIceCreamBaked iceCreamBaked = new ItemIceCreamBaked();
 
    public static void register(IForgeRegistry<Item> registry) {
        registry.registerAll(
                itemKnife,
+               iceCubes,
                dustSalt,
                peas,
                peasSeed,
@@ -52,12 +56,15 @@ public class ModItems {
                specialRawChickenFricassee,
                chickenFricassee,
                chickenFricasseeRice,
-               specialChickenFricassee
+               specialChickenFricassee,
+               iceCream,
+               iceCreamBaked
        );
    }
   
    public static void registerModels() {
        itemKnife.registerItemModel();
+       iceCubes.registerItemModel();
        dustSalt.registerItemModel();
        peasSeed.registerItemModel();
        peas.registerItemModel();
@@ -77,5 +84,7 @@ public class ModItems {
        chickenFricasseeRice.registerItemModel();
        specialChickenFricassee.registerItemModel();
        specialRawChickenFricassee.registerItemModel();
+       iceCream.registerItemModel();
+       iceCreamBaked.registerItemModel();
    }
 }

@@ -25,11 +25,14 @@ public class ModRecipes {
 		ModItems.rice.initOreDict();
 		ModItems.specialChickenFricassee.initOreDict();
 		ModItems.specialRawChickenFricassee.initOreDict();
+		ModItems.iceCream.initOreDict();
+		ModItems.iceCreamBaked.initOreDict();
 		
 		// Smelting
 		GameRegistry.addSmelting(ModItems.rawChickenFricassee, new ItemStack(ModItems.chickenFricassee), 0);
 		GameRegistry.addSmelting(ModItems.rawChickenFricasseeRice, new ItemStack(ModItems.chickenFricasseeRice), 0);
 		GameRegistry.addSmelting(ModItems.specialRawChickenFricassee, new ItemStack(ModItems.specialChickenFricassee), 0);
+		GameRegistry.addSmelting(ModItems.iceCream, new ItemStack(ModItems.iceCreamBaked), 0);
 	
 		// Grass drops
 		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peasSeed), 10);

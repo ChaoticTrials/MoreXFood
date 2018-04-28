@@ -23,9 +23,13 @@ item.chicken_fricassee_rice.name=Hühnerfrikassee mit Reis
 item.chicken_fricassee_special.name=Hühnerfrikassee à la FoodFinja
 item.raw_chicken_fricassee_special.name=Rohes Hühnerfrikassee à la FoodFinja
 item.salt.name=Salz
+item.ice_cream.name=Eis
+item.baked_ice_cream.name=Gebackenes Eis
+item.baked_ice_cream.tooltip=Back dir ein Eis!
 
 # Items 
 item.knife.name=Messer
+item.ice_cubes.name=Eiswürfel
 
 # Blocks / Blöcke
 tile.crop_peas.name=Erbsen

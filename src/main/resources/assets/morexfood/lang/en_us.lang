@@ -23,9 +23,13 @@ item.chicken_fricassee_rice.name=Chicken Fricassee with Rice
 item.chicken_fricassee_special.name=Chicken Fricassee a la FoodFinja
 item.raw_chicken_fricassee_special.name=Raw Chicken Fricassee a la FoodFinja
 item.salt.name=Salt
+item.ice_cream.name=Ice Cream
+item.baked_ice_cream.name=Baked Ice Cream
+item.baked_ice_cream.tooltip=Bake an ice cream!
 
 # Items 
 item.knife.name=Knife
+item.ice_cubes.name=Ice Cubes
 
 # Blocks
 tile.crop_peas.name=Peas
