@@ -2,6 +2,8 @@ package de.melanx.morexfood;
 
 import de.melanx.morexfood.block.ModBlocks;
 import de.melanx.morexfood.client.morexfoodTab;
+import de.melanx.morexfood.config.ConfigurationHandler;
+import de.melanx.morexfood.config.values.ConfigBoolValues;
 import de.melanx.morexfood.items.ModItems;
 import de.melanx.morexfood.proxy.CommonProxy;
 import de.melanx.morexfood.recipe.ModRecipes;
@@ -19,7 +21,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = morexfood.MODID, version = "r-1.1.1", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = "r1.2", name = "More XFood")
 
 public class morexfood {
 	
@@ -53,7 +55,10 @@ public class morexfood {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println(MODID + " is loading");
-		InitCustomCropField.init();
+		new ConfigurationHandler(event.getSuggestedConfigurationFile());
+		if(ConfigBoolValues.SALT_ORE_SPAWNING.isEnabled()){
+			InitCustomCropField.init();
+		}
 		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 	}
 	

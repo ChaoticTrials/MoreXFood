@@ -1,5 +1,6 @@
 package de.melanx.morexfood.recipe;
 
+import de.melanx.morexfood.config.values.ConfigIntValues;
 import de.melanx.morexfood.items.ModItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,10 +36,19 @@ public class ModRecipes {
 		GameRegistry.addSmelting(ModItems.iceCream, new ItemStack(ModItems.iceCreamBaked), 0);
 	
 		// Grass drops
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.peasSeed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.asparagusSeed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.agaricusSeed), 10);
-		MinecraftForge.addGrassSeed(new ItemStack(ModItems.riceSeed), 10);
+		for(int i = 0; i < ConfigIntValues.PEAS_SEED_DROPPING.getValue(); i++){
+			MinecraftForge.addGrassSeed(new ItemStack(ModItems.peasSeed), i);
+		}
+		for(int i = 0; i < ConfigIntValues.ASPARAGUS_SEED_DROPPING.getValue(); i++){
+			MinecraftForge.addGrassSeed(new ItemStack(ModItems.asparagusSeed), i);
+		}
+		for(int i = 0; i < ConfigIntValues.AGARICUS_SEED_DROPPING.getValue(); i++){
+			MinecraftForge.addGrassSeed(new ItemStack(ModItems.agaricusSeed), i);
+		}
+		for(int i = 0; i < ConfigIntValues.RICE_SEED_DROPPING.getValue(); i++){
+			MinecraftForge.addGrassSeed(new ItemStack(ModItems.riceSeed), i);
+		}
+
 		
 	}
 
