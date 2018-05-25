@@ -5,6 +5,7 @@ import de.melanx.morexfood.client.morexfoodTab;
 import de.melanx.morexfood.config.ConfigurationHandler;
 import de.melanx.morexfood.config.values.ConfigBoolValues;
 import de.melanx.morexfood.items.ModItems;
+import de.melanx.morexfood.loot.RegisterLoot;
 import de.melanx.morexfood.proxy.CommonProxy;
 import de.melanx.morexfood.recipe.ModRecipes;
 import de.melanx.morexfood.world.ModWorldGen;
@@ -12,6 +13,7 @@ import de.melanx.morexfood.world.village.InitCustomCropField;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -21,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = morexfood.MODID, version = "r1.2", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = "r1.3", name = "More XFood")
 
 public class morexfood {
 	
@@ -64,7 +66,8 @@ public class morexfood {
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		ModRecipes.init();		
+		ModRecipes.init();
+		MinecraftForge.EVENT_BUS.register(new RegisterLoot());
 	}
 	
 	@Mod.EventHandler

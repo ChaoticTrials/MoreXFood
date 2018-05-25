@@ -28,12 +28,14 @@ public class ModRecipes {
 		ModItems.specialRawChickenFricassee.initOreDict();
 		ModItems.iceCream.initOreDict();
 		ModItems.iceCreamBaked.initOreDict();
+		ModItems.horseMeat.initOreDict();
 		
 		// Smelting
 		GameRegistry.addSmelting(ModItems.rawChickenFricassee, new ItemStack(ModItems.chickenFricassee), 0);
 		GameRegistry.addSmelting(ModItems.rawChickenFricasseeRice, new ItemStack(ModItems.chickenFricasseeRice), 0);
 		GameRegistry.addSmelting(ModItems.specialRawChickenFricassee, new ItemStack(ModItems.specialChickenFricassee), 0);
 		GameRegistry.addSmelting(ModItems.iceCream, new ItemStack(ModItems.iceCreamBaked), 0);
+		GameRegistry.addSmelting(ModItems.horseMeat, new ItemStack(ModItems.lasagne), 0);
 	
 		// Grass drops
 		for(int i = 0; i < ConfigIntValues.PEAS_SEED_DROPPING.getValue(); i++){

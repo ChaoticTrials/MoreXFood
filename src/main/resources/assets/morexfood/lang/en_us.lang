@@ -26,6 +26,8 @@ item.salt.name=Salt
 item.ice_cream.name=Ice Cream
 item.baked_ice_cream.name=Baked Ice Cream
 item.baked_ice_cream.tooltip=Bake an ice cream!
+item.horse_meat.name=Horse Meat
+item.lasagne.name=Lasagne
 
 # Items 
 item.knife.name=Knife
