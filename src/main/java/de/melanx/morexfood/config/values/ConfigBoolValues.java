@@ -4,6 +4,7 @@ import de.melanx.morexfood.config.ConfigCategories;
 
 public enum ConfigBoolValues {
 
+    CROP_FIELD("Crop field generating in villages", ConfigCategories.WORLD_GEN, true, "Should crop fields be generated? [DEFAULT: true]"),
     SALT_ORE_SPAWNING("Salt Ore spawning",ConfigCategories.WORLD_GEN, true, "Should Salt Ore be generated? [DEFAULT: true]");
 
     public final String name;

@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = morexfood.MODID, version = "r1.3", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = "r1.4", name = "More XFood")
 
 public class morexfood {
 	
@@ -58,10 +58,12 @@ public class morexfood {
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println(MODID + " is loading");
 		new ConfigurationHandler(event.getSuggestedConfigurationFile());
-		if(ConfigBoolValues.SALT_ORE_SPAWNING.isEnabled()){
+		if(ConfigBoolValues.CROP_FIELD.isEnabled()){
 			InitCustomCropField.init();
 		}
-		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+		if(ConfigBoolValues.SALT_ORE_SPAWNING.isEnabled()){
+			GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+		}
 	}
 	
 	@Mod.EventHandler
