@@ -1,10 +1,10 @@
 package de.melanx.morexfood.loot;
 
-import de.melanx.morexfood.items.ItemHorseMeat;
 import de.melanx.morexfood.items.ModItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -29,6 +29,11 @@ public class RegisterLoot {
             } else if (world.rand.nextInt(5) == 3) {
                 event.getDrops().add(new EntityItem(world, x, y, z, new ItemStack(ModItems.horseMeat)));
                 event.getDrops().add(new EntityItem(world, x, y, z, new ItemStack(ModItems.horseMeat)));
+            }
+        }
+        if (deadEntity instanceof EntityWolf) {
+            if (world.rand.nextInt(3) == 1) {
+                event.getDrops().add(new EntityItem(world, x, y, z, new ItemStack(ModItems.rawDogGoulash)));
             }
         }
     }

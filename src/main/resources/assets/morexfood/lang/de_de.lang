@@ -28,6 +28,8 @@ item.baked_ice_cream.name=Gebackenes Eis
 item.baked_ice_cream.tooltip=Back dir ein Eis!
 item.horse_meat.name=Pferdefleisch
 item.lasagne.name=Lasagne
+item.raw_dog_meat.name=Rohes Hundegulasch
+item.dog_goulash.name=Hundegulasch
 
 # Items 
 item.knife.name=Messer

@@ -35,6 +35,8 @@ public class ModItems {
    public static ItemIceCreamBaked iceCreamBaked = new ItemIceCreamBaked();
    public static ItemHorseMeat horseMeat = new ItemHorseMeat();
    public static ItemLasagne lasagne = new ItemLasagne();
+   public static ItemDogGoulash dogGoulash = new ItemDogGoulash();
+   public static ItemRawDogGoulash rawDogGoulash = new ItemRawDogGoulash();
 
    public static void register(IForgeRegistry<Item> registry) {
        registry.registerAll(
@@ -62,7 +64,9 @@ public class ModItems {
                iceCream,
                iceCreamBaked,
                horseMeat,
-               lasagne
+               lasagne,
+               dogGoulash,
+               rawDogGoulash
        );
    }
   
@@ -92,5 +96,7 @@ public class ModItems {
        iceCreamBaked.registerItemModel();
        horseMeat.registerItemModel();
        lasagne.registerItemModel();
+       dogGoulash.registerItemModel();
+       rawDogGoulash.registerItemModel();
    }
 }

@@ -28,6 +28,8 @@ item.baked_ice_cream.name=Baked Ice Cream
 item.baked_ice_cream.tooltip=Bake an ice cream!
 item.horse_meat.name=Horse Meat
 item.lasagne.name=Lasagne
+item.raw_dog_meat.name=Raw Dog Goulash
+item.dog_goulash.name=Dog Goulash
 
 # Items 
 item.knife.name=Knife

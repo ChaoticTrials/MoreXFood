@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = morexfood.MODID, version = "r1.4", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = "r1.5", name = "More XFood")
 
 public class morexfood {
 	
