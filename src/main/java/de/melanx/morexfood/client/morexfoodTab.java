@@ -1,15 +1,14 @@
 package de.melanx.morexfood.client;
 
 import de.melanx.morexfood.items.ModItems;
+import de.melanx.morexfood.morexfood;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 public class morexfoodTab extends CreativeTabs {
 
-	private static final String modID = "More XFood";
-
 	public morexfoodTab() {
-		super(morexfoodTab.modID);
+		super(morexfood.MODID);
 	}
 	
 	@Override

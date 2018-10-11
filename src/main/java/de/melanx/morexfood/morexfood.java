@@ -23,11 +23,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = morexfood.MODID, version = "r1.5", name = "More XFood")
+@Mod(modid = morexfood.MODID, version = morexfood.VERSION, name = morexfood.NAME)
 
 public class morexfood {
 	
 	public static final String MODID = "morexfood";
+	public static final String VERSION = "@VERSION@";
+	public static final String NAME = "More XFood";
 	public static final morexfoodTab creativeTab = new morexfoodTab();
 	
 	@SidedProxy(clientSide = "de.melanx.morexfood.proxy.ClientProxy", serverSide = "de.melanx.morexfood.proxy.CommonProxy")
