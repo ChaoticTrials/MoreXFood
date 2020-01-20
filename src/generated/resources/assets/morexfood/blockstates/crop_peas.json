@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "morexfood:block/crop_peas_0"
+    },
+    "age=1": {
+      "model": "morexfood:block/crop_peas_1"
+    },
+    "age=2": {
+      "model": "morexfood:block/crop_peas_2"
+    },
+    "age=3": {
+      "model": "morexfood:block/crop_peas_3"
+    },
+    "age=4": {
+      "model": "morexfood:block/crop_peas_4"
+    },
+    "age=5": {
+      "model": "morexfood:block/crop_peas_5"
+    }
+  }
+}

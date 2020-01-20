@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "morexfood:block/crop_agaricus_0"
+    },
+    "age=1": {
+      "model": "morexfood:block/crop_agaricus_1"
+    },
+    "age=2": {
+      "model": "morexfood:block/crop_agaricus_2"
+    },
+    "age=3": {
+      "model": "morexfood:block/crop_agaricus_3"
+    }
+  }
+}

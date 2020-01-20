@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "morexfood:block/crop_agaricus_3"
+  }
+}
