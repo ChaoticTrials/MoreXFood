@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+
+[[mods]]
+modId="morexfood"
+version="${file.jarVersion}"
+displayName="More XFood"
+updateJSONURL="https://raw.githubusercontent.com/MelanX/morexfood/master/update/update.json"
+authors="MelanX"
+description='''
+This is my first mod. It's for learning how to build a mod but it's a christmas present for my girlfriend, too. It adds her favourite food and a few ingredients for this.
+'''
+[[dependencies.morevanillatools]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.morevanillatools]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"
