@@ -1,0 +1,40 @@
+﻿{
+    "itemGroup.morexfood": "More XFood",
+
+    "item.morexfood.peas_seed": "Erbsensamen",
+    "item.morexfood.asparagus_seed": "Spargelsamen",
+    "item.morexfood.agaricus_seed": "Champignonsporen",
+    "item.morexfood.rice_seed": "Reissamen",
+
+    "item.morexfood.peas": "Erbsen",
+    "item.morexfood.asparagus": "Spargel",
+    "item.morexfood.agaricus": "Champignon",
+    "item.morexfood.rice": "Reis",
+    "item.morexfood.carrot_pieces": "Karottenstücke",
+    "item.morexfood.mixed_vegetables": "Mischgemüse",
+    "item.morexfood.asparagus_pieces": "Spargelstücke",
+    "item.morexfood.chicken_pieces": "Hühnchenstücke",
+    "item.morexfood.chicken_fricassee_raw": "Rohes Hühnerfrikassee",
+    "item.morexfood.chicken_fricassee": "Hühnerfrikassee",
+    "item.morexfood.chicken_fricassee_rice_raw": "Rohes Hühnerfrikassee mit Reis",
+    "item.morexfood.chicken_fricassee_rice": "Hühnerfrikassee mit Reis",
+    "item.morexfood.chicken_fricassee_special": "Hühnerfrikassee à la FoodFinja",
+    "item.morexfood.chicken_fricassee_special_raw": "Rohes Hühnerfrikassee à la FoodFinja",
+    "item.morexfood.salt": "Salz",
+    "item.morexfood.ice_cream": "Eis",
+    "item.morexfood.ice_cream_baked": "Gebackenes Eis",
+    "item.morexfood.ice_cream_baked.tooltip": "Back dir ein Eis!",
+    "item.morexfood.horse_meat": "Pferdefleisch",
+    "item.morexfood.lasagne": "Lasagne",
+    "item.morexfood.dog_meat_raw": "Rohes Hundegulasch",
+    "item.morexfood.dog_goulash": "Hundegulasch",
+
+    "item.morexfood.knife": "Messer",
+    "item.morexfood.ice_cubes": "Eiswürfel",
+
+    "block.morexfood.crop_peas": "Erbsen",
+    "block.morexfood.crop_asparagus": "Spargel",
+    "block.morexfood.crop_agaricus": "Champignon",
+    "block.morexfood.crop_rice": "Reis",
+    "block.morexfood.salt_ore": "Steinsalz"
+}

@@ -33,10 +33,6 @@ public class Registry {
     public static final RegistryObject<Block> rice_block = BLOCKS.register("crop_rice", () -> new BlockCropRice(blockProps));
     private static final Item.Properties itemProps = new Item.Properties().group(MoreXFood.creativeTab);
     public static final RegistryObject<Item> salt_ore_item = BLOCK_ITEMS.register("salt_ore", () -> new BlockItem(salt_ore.get(), itemProps));
-    public static final RegistryObject<Item> agaricus_item = BLOCK_ITEMS.register("crop_agaricus", () -> new BlockItem(agaricus_block.get(), itemProps));
-    public static final RegistryObject<Item> asparagus_item = BLOCK_ITEMS.register("crop_asparagus", () -> new BlockItem(asparagus_block.get(), itemProps));
-    public static final RegistryObject<Item> peas_item = BLOCK_ITEMS.register("crop_peas", () -> new BlockItem(peas_block.get(), itemProps));
-    public static final RegistryObject<Item> rice_item = BLOCK_ITEMS.register("crop_rice", () -> new BlockItem(rice_block.get(), itemProps));
 
     // items
     public static final RegistryObject<Item> knife = ITEMS.register("knife", () -> new ItemKnife(itemProps.containerItem(new ItemKnife(itemProps))));

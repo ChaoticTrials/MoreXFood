@@ -1,0 +1,40 @@
+{
+    "itemGroup.morexfood": "More XFood",
+
+    "item.morexfood.peas_seed": "Peas Seeds",
+    "item.morexfood.asparagus_seed": "Asparagus Seeds",
+    "item.morexfood.agaricus_seed": "Agaricus Spores",
+    "item.morexfood.rice_seed": "Rice Seeds",
+
+    "item.morexfood.peas": "Peas",
+    "item.morexfood.asparagus": "Asparagus",
+    "item.morexfood.agaricus": "Agaricus",
+    "item.morexfood.rice": "Rice",
+    "item.morexfood.carrot_pieces": "Carrot Pieces",
+    "item.morexfood.mixed_vegetables": "Mixed Vegetables",
+    "item.morexfood.asparagus_pieces": "Asparagus Pieces",
+    "item.morexfood.chicken_pieces": "Chicken Pieces",
+    "item.morexfood.chicken_fricassee_raw": "Raw Chicken Fricassee",
+    "item.morexfood.chicken_fricassee": "Chicken Fricassee",
+    "item.morexfood.chicken_fricassee_rice_raw": "Raw Chicken Fricassee with Rice",
+    "item.morexfood.chicken_fricassee_rice": "Chicken Fricassee with Rice",
+    "item.morexfood.chicken_fricassee_special": "Chicken Fricassee a la FoodFinja",
+    "item.morexfood.chicken_fricassee_special_raw": "Raw Chicken Fricassee a la FoodFinja",
+    "item.morexfood.salt": "Salt",
+    "item.morexfood.ice_cream": "Ice Cream",
+    "item.morexfood.ice_cream_baked": "Baked Ice Cream",
+    "item.morexfood.ice_cream_baked.tooltip": "Bake an ice cream!",
+    "item.morexfood.horse_meat": "Horse Meat",
+    "item.morexfood.lasagne": "Lasagne",
+    "item.morexfood.dog_meat_raw": "Raw Dog Goulash",
+    "item.morexfood.dog_goulash": "Dog Goulash",
+
+    "item.morexfood.knife": "Knife",
+    "item.morexfood.ice_cubes": "Ice Cubes",
+
+    "block.morexfood.crop_peas": "Peas",
+    "block.morexfood.crop_asparagus": "Asparagus",
+    "block.morexfood.crop_agaricus": "Agaricus",
+    "block.morexfood.crop_rice": "Rice",
+    "block.morexfood.salt_ore": "Salt Ore"
+}
