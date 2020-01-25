@@ -36,7 +36,7 @@ public class Registry {
     public static final RegistryObject<Item> salt_ore_item = BLOCK_ITEMS.register("salt_ore", () -> new BlockItem(salt_ore.get(), itemProps));
 
     // items
-    public static final RegistryObject<Item> knife = ITEMS.register("knife", () -> new ItemKnife(itemProps.containerItem(new ItemKnife(itemProps))));
+    public static final RegistryObject<Item> knife = ITEMS.register("knife", () -> new ItemKnife(itemProps));
     public static final RegistryObject<Item> ice_cubes = ITEMS.register("ice_cubes", () -> new Item(itemProps));
     public static final RegistryObject<Item> dust_salt = ITEMS.register("salt", () -> new Item(itemProps));
 
