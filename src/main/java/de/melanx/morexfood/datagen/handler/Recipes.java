@@ -110,8 +110,8 @@ public class Recipes extends RecipeProvider {
     }
 
     private ShapelessRecipeBuilder registerSeedRecipe(Item crop, Item seed) {
-        return ShapelessRecipeBuilder.shapelessRecipe(crop)
-                .addIngredient(seed)
+        return ShapelessRecipeBuilder.shapelessRecipe(seed)
+                .addIngredient(crop)
                 .addCriterion("has_item", hasItem(crop));
     }
 

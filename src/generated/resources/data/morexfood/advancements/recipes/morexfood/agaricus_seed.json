@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "morexfood:rice"
+      "morexfood:agaricus_seed"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "morexfood:rice"
+            "item": "morexfood:agaricus"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "morexfood:rice"
+        "recipe": "morexfood:agaricus_seed"
       }
     }
   },

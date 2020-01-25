@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "morexfood:asparagus"
+      "morexfood:peas_seed"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "morexfood:asparagus"
+            "item": "morexfood:peas"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "morexfood:asparagus"
+        "recipe": "morexfood:peas_seed"
       }
     }
   },
