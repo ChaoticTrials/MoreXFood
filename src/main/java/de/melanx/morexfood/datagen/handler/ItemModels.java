@@ -19,6 +19,9 @@ public class ItemModels extends ItemModelProvider {
         for (RegistryObject<Item> item : Registry.ITEMS.getEntries()) {
             generateItemModel(item.get());
         }
+        for (RegistryObject<Item> item : Registry.SEEDS.getEntries()) {
+            generateItemModel(item.get());
+        }
         for (RegistryObject<Item> blockItem : Registry.BLOCK_ITEMS.getEntries()) {
             generateBlockItemModel(blockItem.get());
         }

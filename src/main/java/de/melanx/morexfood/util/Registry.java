@@ -21,6 +21,7 @@ import static de.melanx.morexfood.MoreXFood.MODID;
 public class Registry {
 
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> SEEDS = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> BLOCK_ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, MODID);
 
@@ -33,10 +34,6 @@ public class Registry {
     public static final RegistryObject<Block> rice_block = BLOCKS.register("crop_rice", () -> new BlockCropRice(blockProps));
     private static final Item.Properties itemProps = new Item.Properties().group(MoreXFood.creativeTab);
     public static final RegistryObject<Item> salt_ore_item = BLOCK_ITEMS.register("salt_ore", () -> new BlockItem(salt_ore.get(), itemProps));
-    public static final RegistryObject<Item> agaricus_item = BLOCK_ITEMS.register("crop_agaricus", () -> new BlockItem(agaricus_block.get(), itemProps));
-    public static final RegistryObject<Item> asparagus_item = BLOCK_ITEMS.register("crop_asparagus", () -> new BlockItem(asparagus_block.get(), itemProps));
-    public static final RegistryObject<Item> peas_item = BLOCK_ITEMS.register("crop_peas", () -> new BlockItem(peas_block.get(), itemProps));
-    public static final RegistryObject<Item> rice_item = BLOCK_ITEMS.register("crop_rice", () -> new BlockItem(rice_block.get(), itemProps));
 
     // items
     public static final RegistryObject<Item> knife = ITEMS.register("knife", () -> new ItemKnife(itemProps.containerItem(new ItemKnife(itemProps))));
@@ -44,10 +41,10 @@ public class Registry {
     public static final RegistryObject<Item> dust_salt = ITEMS.register("salt", () -> new Item(itemProps));
 
     // seeds
-    public static final RegistryObject<Item> agaricus_seed = ITEMS.register("agaricus_seed", () -> new BlockNamedItem(agaricus_block.get(), itemProps));
-    public static final RegistryObject<Item> asparagus_seed = ITEMS.register("asparagus_seed", () -> new BlockNamedItem(asparagus_block.get(), itemProps));
-    public static final RegistryObject<Item> peas_seed = ITEMS.register("peas_seed", () -> new BlockNamedItem(peas_block.get(), itemProps));
-    public static final RegistryObject<Item> rice_seed = ITEMS.register("rice_seed", () -> new BlockNamedItem(rice_block.get(), itemProps));
+    public static final RegistryObject<Item> agaricus_seed = SEEDS.register("agaricus_seed", () -> new BlockNamedItem(agaricus_block.get(), itemProps));
+    public static final RegistryObject<Item> asparagus_seed = SEEDS.register("asparagus_seed", () -> new BlockNamedItem(asparagus_block.get(), itemProps));
+    public static final RegistryObject<Item> peas_seed = SEEDS.register("peas_seed", () -> new BlockNamedItem(peas_block.get(), itemProps));
+    public static final RegistryObject<Item> rice_seed = SEEDS.register("rice_seed", () -> new BlockNamedItem(rice_block.get(), itemProps));
 
     // food
     public static final RegistryObject<Item> agaricus = ITEMS.register("agaricus", () -> new Item(itemProps.food(buildFoodValues(1, 0.6F))));

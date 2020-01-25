@@ -20,6 +20,7 @@ public class MoreXFood {
         instance = this;
 
         Registry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        Registry.SEEDS.register(FMLJavaModLoadingContext.get().getModEventBus());
         Registry.BLOCK_ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         Registry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
