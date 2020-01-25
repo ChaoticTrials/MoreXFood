@@ -4,6 +4,7 @@ import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.datagen.handler.BlockStates;
 import de.melanx.morexfood.datagen.handler.ItemModels;
 import de.melanx.morexfood.datagen.handler.LootTables;
+import de.melanx.morexfood.datagen.handler.Recipes;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,6 +21,7 @@ public class DataCreator {
 
         if (event.includeServer()) {
             gen.addProvider(new LootTables(gen));
+            gen.addProvider(new Recipes(gen));
         }
         if (event.includeClient()) {
             gen.addProvider(new ItemModels(gen, helper));
