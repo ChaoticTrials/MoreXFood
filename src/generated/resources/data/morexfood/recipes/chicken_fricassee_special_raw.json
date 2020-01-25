@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "morexfood:carrot_pieces"
+    },
+    {
+      "item": "morexfood:asparagus_pieces"
+    },
+    {
+      "item": "morexfood:chicken_pieces"
+    },
+    {
+      "item": "morexfood:rice"
+    },
+    {
+      "item": "morexfood:salt"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "morexfood:chicken_fricassee_special_raw"
+  }
+}

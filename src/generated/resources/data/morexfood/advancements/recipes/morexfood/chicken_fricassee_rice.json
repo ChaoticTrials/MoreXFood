@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "morexfood:chicken_fricassee_rice"
+    ]
+  },
+  "criteria": {
+    "has_ingredient1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "morexfood:rice"
+          }
+        ]
+      }
+    },
+    "has_ingredient2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "morexfood:chicken_fricassee"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "morexfood:chicken_fricassee_rice"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredient1",
+      "has_ingredient2",
+      "has_the_recipe"
+    ]
+  ]
+}

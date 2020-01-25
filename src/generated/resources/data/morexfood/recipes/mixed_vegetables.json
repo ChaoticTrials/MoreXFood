@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "morexfood:carrot_pieces"
+    },
+    {
+      "item": "morexfood:peas"
+    }
+  ],
+  "result": {
+    "item": "morexfood:mixed_vegetables"
+  }
+}

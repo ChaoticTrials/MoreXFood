@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "morexfood:ice_cream"
+    ]
+  },
+  "criteria": {
+    "has_ingredient1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "morexfood:ice_cubes"
+          }
+        ]
+      }
+    },
+    "has_ingredient2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:milk_bucket"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "morexfood:ice_cream"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredient1",
+      "has_ingredient2",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "morexfood:mixed_vegetables"
+    ]
+  },
+  "criteria": {
+    "has_ingredient1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "morexfood:carrot_pieces"
+          }
+        ]
+      }
+    },
+    "has_ingredient2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "morexfood:peas"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "morexfood:mixed_vegetables"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredient1",
+      "has_ingredient2",
+      "has_the_recipe"
+    ]
+  ]
+}

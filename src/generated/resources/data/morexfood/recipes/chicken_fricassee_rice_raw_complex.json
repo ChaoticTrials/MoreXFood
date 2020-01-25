@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "morexfood:mixed_vegetables"
+    },
+    {
+      "item": "morexfood:asparagus_pieces"
+    },
+    {
+      "item": "morexfood:chicken_pieces"
+    },
+    {
+      "item": "morexfood:rice"
+    },
+    {
+      "item": "morexfood:salt"
+    },
+    {
+      "tag": "forge:mushrooms"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "morexfood:chicken_fricassee_rice_raw"
+  }
+}

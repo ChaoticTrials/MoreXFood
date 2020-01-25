@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "morexfood:dog_meat_raw"
+  },
+  "result": "morexfood:dog_goulash",
+  "experience": 0.35,
+  "cookingtime": 100
+}

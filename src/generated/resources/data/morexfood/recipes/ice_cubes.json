@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "sbs",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:snowball"
+    },
+    "b": {
+      "item": "minecraft:potion"
+    }
+  },
+  "result": {
+    "item": "morexfood:ice_cubes",
+    "count": 8
+  }
+}

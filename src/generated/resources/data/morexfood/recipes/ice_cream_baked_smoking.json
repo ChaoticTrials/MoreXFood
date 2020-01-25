@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "morexfood:ice_cream"
+  },
+  "result": "morexfood:ice_cream_baked",
+  "experience": 0.35,
+  "cookingtime": 100
+}
