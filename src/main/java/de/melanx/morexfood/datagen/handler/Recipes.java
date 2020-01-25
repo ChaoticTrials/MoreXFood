@@ -22,9 +22,6 @@ public class Recipes extends RecipeProvider {
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
         registerSmeltingRecipes(consumer, "_smoking", IRecipeSerializer.SMOKING, 0.35F, 100);
         registerSmeltingRecipes(consumer, "_campfire", IRecipeSerializer.CAMPFIRE_COOKING, 0.35F, 600);
-        registerSmokingRecipe(Registry.chicken_fricassee.get(), Ingredient.fromItems(Registry.chicken_fricassee_raw.get())).build(consumer);
-        registerSmokingRecipe(Registry.chicken_fricassee_rice.get(), Ingredient.fromItems(Registry.chicken_fricassee_rice_raw.get())).build(consumer);
-        registerSmokingRecipe(Registry.chicken_fricassee_special.get(), Ingredient.fromItems(Registry.chicken_fricassee_special_raw.get())).build(consumer);
 
         registerSeedRecipe(Registry.agaricus.get(), Registry.agaricus_seed.get()).build(consumer);
         registerSeedRecipe(Registry.asparagus.get(), Registry.asparagus_seed.get()).build(consumer);
@@ -38,12 +35,12 @@ public class Recipes extends RecipeProvider {
         registerTwoIngredientRecipe(Registry.ice_cream.get(), Registry.ice_cubes.get(), Items.MILK_BUCKET).build(consumer);
         registerTwoIngredientRecipe(Registry.chicken_fricassee_rice.get(), Registry.rice.get(), Registry.chicken_fricassee.get()).build(consumer);
         registerTwoIngredientRecipe(Registry.mixed_vegetables.get(), Registry.carrot_pieces.get(), Registry.peas.get()).build(consumer);
-        registerTwoIngredientRecipe(Registry.chicken_fricassee_rice_raw.get(), Registry.chicken_fricassee.get(), Registry.rice.get()).build(consumer);
+        registerTwoIngredientRecipe(Registry.chicken_fricassee_rice_raw.get(), Registry.chicken_fricassee.get(), Registry.rice.get()).build(consumer, Registry.chicken_fricassee_rice_raw.get().getRegistryName() + "_simple");
 
         registerSixIngredientRecipe(Registry.chicken_fricassee_raw.get(), Registry.mixed_vegetables.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.dust_salt.get(), Items.WATER_BUCKET, Tags.Items.MUSHROOMS).build(consumer);
         registerSixIngredientRecipe(Registry.chicken_fricassee_special_raw.get(), Registry.carrot_pieces.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.rice.get(), Registry.dust_salt.get(), Items.WATER_BUCKET).build(consumer);
 
-        registerSevenIngredientRecipe(Registry.chicken_fricassee_rice_raw.get(), Registry.mixed_vegetables.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.rice.get(), Registry.dust_salt.get(), Items.WATER_BUCKET, Tags.Items.MUSHROOMS).build(consumer);
+        registerSevenIngredientRecipe(Registry.chicken_fricassee_rice_raw.get(), Registry.mixed_vegetables.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.rice.get(), Registry.dust_salt.get(), Items.WATER_BUCKET, Tags.Items.MUSHROOMS).build(consumer, Registry.chicken_fricassee_rice_raw.get().getRegistryName() + "_complex");
 
         ShapedRecipeBuilder.shapedRecipe(Registry.knife.get())
                 .key('s', Items.STICK)
@@ -62,22 +59,17 @@ public class Recipes extends RecipeProvider {
     }
 
     private void registerSmeltingRecipes(Consumer<IFinishedRecipe> consumer, String method, CookingRecipeSerializer<?> serializer, float xp, int time) {
-        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_raw.get()), Registry.chicken_fricassee.get(), xp, time, serializer).build(consumer, Registry.chicken_fricassee.get().getRegistryName().getPath() + method);
-        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_rice_raw.get()), Registry.chicken_fricassee_rice.get(), xp, time, serializer).build(consumer, Registry.chicken_fricassee_rice.get().getRegistryName().getPath() + method);
-        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_special_raw.get()), Registry.chicken_fricassee_special.get(), xp, time, serializer).build(consumer, Registry.chicken_fricassee_special.get().getRegistryName().getPath() + method);
-        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.ice_cream.get()), Registry.ice_cream_baked.get(), xp, time, serializer).build(consumer, Registry.ice_cream_baked.get().getRegistryName().getPath() + method);
-        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.horse_meat.get()), Registry.lasagne.get(), xp, time, serializer).build(consumer, Registry.lasagne.get().getRegistryName().getPath() + method);
-        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.dog_goulash_raw.get()), Registry.dog_goulash.get(), xp, time, serializer).build(consumer, Registry.dog_goulash.get().getRegistryName().getPath() + method);
-    }
-
-    private CookingRecipeBuilder registerSmokingRecipe(Item result, Ingredient ingredient) {
-        return CookingRecipeBuilder.cookingRecipe(ingredient, result, 0.35F, 100, IRecipeSerializer.SMOKING);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_raw.get()), Registry.chicken_fricassee.get(), xp, time, serializer).addCriterion("has_raw", hasItem(Registry.chicken_fricassee_raw.get())).build(consumer, Registry.chicken_fricassee.get().getRegistryName() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_rice_raw.get()), Registry.chicken_fricassee_rice.get(), xp, time, serializer).addCriterion("has_raw", hasItem(Registry.chicken_fricassee_rice_raw.get())).build(consumer, Registry.chicken_fricassee_rice.get().getRegistryName() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_special_raw.get()), Registry.chicken_fricassee_special.get(), xp, time, serializer).addCriterion("has_raw", hasItem(Registry.chicken_fricassee_special_raw.get())).build(consumer, Registry.chicken_fricassee_special.get().getRegistryName() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.ice_cream.get()), Registry.ice_cream_baked.get(), xp, time, serializer).addCriterion("has_raw", hasItem(Registry.ice_cream.get())).build(consumer, Registry.ice_cream_baked.get().getRegistryName() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.horse_meat.get()), Registry.lasagne.get(), xp, time, serializer).addCriterion("has_raw", hasItem(Registry.horse_meat.get())).build(consumer, Registry.lasagne.get().getRegistryName() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.dog_goulash_raw.get()), Registry.dog_goulash.get(), xp, time, serializer).addCriterion("has_raw", hasItem(Registry.dog_goulash_raw.get())).build(consumer, Registry.dog_goulash.get().getRegistryName() + method);
     }
 
     private ShapelessRecipeBuilder registerSevenIngredientRecipe(Item result, Item ingredient1, Item ingredient2, Item ingredient3, Item ingredient4, Item ingredient5, Item ingredient6, Tag<Item> ingredient7) {
         return registerSixIngredientRecipe(result, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient7)
-                .addIngredient(ingredient6)
-                .addCriterion("has_material", hasItem(result));
+                .addIngredient(ingredient6);
     }
 
     private ShapelessRecipeBuilder registerSixIngredientRecipe(Item result, Item ingredient1, Item ingredient2, Item ingredient3, Item ingredient4, Item ingredient5, Tag<Item> ingredient6) {
