@@ -4,6 +4,9 @@ import de.melanx.morexfood.util.Registry;
 import net.minecraft.data.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.CookingRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.Tag;
 import net.minecraftforge.common.Tags;
 
@@ -17,6 +20,12 @@ public class Recipes extends RecipeProvider {
 
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+        registerSmeltingRecipes(consumer, "_smoking", IRecipeSerializer.SMOKING, 0.35F, 100);
+        registerSmeltingRecipes(consumer, "_campfire", IRecipeSerializer.CAMPFIRE_COOKING, 0.35F, 600);
+        registerSmokingRecipe(Registry.chicken_fricassee.get(), Ingredient.fromItems(Registry.chicken_fricassee_raw.get())).build(consumer);
+        registerSmokingRecipe(Registry.chicken_fricassee_rice.get(), Ingredient.fromItems(Registry.chicken_fricassee_rice_raw.get())).build(consumer);
+        registerSmokingRecipe(Registry.chicken_fricassee_special.get(), Ingredient.fromItems(Registry.chicken_fricassee_special_raw.get())).build(consumer);
+
         registerSeedRecipe(Registry.agaricus.get(), Registry.agaricus_seed.get()).build(consumer);
         registerSeedRecipe(Registry.asparagus.get(), Registry.asparagus_seed.get()).build(consumer);
         registerSeedRecipe(Registry.peas.get(), Registry.peas_seed.get()).build(consumer);
@@ -50,6 +59,19 @@ public class Recipes extends RecipeProvider {
                 .patternLine("sbs")
                 .patternLine("sss")
                 .addCriterion("has_material", hasItem(Registry.ice_cubes.get())).build(consumer);
+    }
+
+    private void registerSmeltingRecipes(Consumer<IFinishedRecipe> consumer, String method, CookingRecipeSerializer<?> serializer, float xp, int time) {
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_raw.get()), Registry.chicken_fricassee.get(), xp, time, serializer).build(consumer, Registry.chicken_fricassee.get().getRegistryName().getPath() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_rice_raw.get()), Registry.chicken_fricassee_rice.get(), xp, time, serializer).build(consumer, Registry.chicken_fricassee_rice.get().getRegistryName().getPath() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.chicken_fricassee_special_raw.get()), Registry.chicken_fricassee_special.get(), xp, time, serializer).build(consumer, Registry.chicken_fricassee_special.get().getRegistryName().getPath() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.ice_cream.get()), Registry.ice_cream_baked.get(), xp, time, serializer).build(consumer, Registry.ice_cream_baked.get().getRegistryName().getPath() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.horse_meat.get()), Registry.lasagne.get(), xp, time, serializer).build(consumer, Registry.lasagne.get().getRegistryName().getPath() + method);
+        CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.dog_goulash_raw.get()), Registry.dog_goulash.get(), xp, time, serializer).build(consumer, Registry.dog_goulash.get().getRegistryName().getPath() + method);
+    }
+
+    private CookingRecipeBuilder registerSmokingRecipe(Item result, Ingredient ingredient) {
+        return CookingRecipeBuilder.cookingRecipe(ingredient, result, 0.35F, 100, IRecipeSerializer.SMOKING);
     }
 
     private ShapelessRecipeBuilder registerSevenIngredientRecipe(Item result, Item ingredient1, Item ingredient2, Item ingredient3, Item ingredient4, Item ingredient5, Item ingredient6, Tag<Item> ingredient7) {
