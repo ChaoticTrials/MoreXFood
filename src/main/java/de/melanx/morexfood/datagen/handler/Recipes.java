@@ -104,7 +104,7 @@ public class Recipes extends RecipeProvider {
 
     private ShapelessRecipeBuilder registerPiecesRecipe(Item result, Item ingredient) {
         return ShapelessRecipeBuilder.shapelessRecipe(result)
-                .addIngredient(ingredient, 2)
+                .addIngredient(ingredient)
                 .addIngredient(Registry.knife.get())
                 .addCriterion("has_food", hasItem(ingredient));
     }
