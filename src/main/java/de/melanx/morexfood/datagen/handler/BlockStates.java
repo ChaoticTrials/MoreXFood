@@ -1,8 +1,8 @@
 package de.melanx.morexfood.datagen.handler;
 
 import de.melanx.morexfood.MoreXFood;
-import de.melanx.morexfood.util.Registry;
 import de.melanx.morexfood.block.OreSalt;
+import de.melanx.morexfood.util.Registry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.data.DataGenerator;

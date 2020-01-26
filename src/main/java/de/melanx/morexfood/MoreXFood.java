@@ -1,9 +1,9 @@
 package de.melanx.morexfood;
 
 import de.melanx.morexfood.config.ConfigHandler;
+import de.melanx.morexfood.util.CreativeTab;
 import de.melanx.morexfood.util.RegisterLoot;
 import de.melanx.morexfood.util.Registry;
-import de.melanx.morexfood.util.CreativeTab;
 import de.melanx.morexfood.util.SeedDrops;
 import de.melanx.morexfood.world.ModWorldGen;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,13 +44,4 @@ public class MoreXFood {
     private void setup(FMLCommonSetupEvent event){
         ModWorldGen.init();
     }
-
-//		if(ConfigBoolValues.CROP_FIELD.isEnabled()){
-//			InitCustomCropField.init();
-//		}
-//		if(ConfigBoolValues.SALT_ORE_SPAWNING.isEnabled()){
-//			GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
-//		}
-//		ModRecipes.init();
-
 }

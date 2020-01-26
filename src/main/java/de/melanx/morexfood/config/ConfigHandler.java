@@ -21,12 +21,25 @@ public class ConfigHandler {
     public static ForgeConfigSpec.BooleanValue seedDrops;
     public static ForgeConfigSpec.IntValue seedDropChance;
 
+    public static ForgeConfigSpec.BooleanValue oreGeneration;
+    public static ForgeConfigSpec.IntValue saltMinHeight;
+    public static ForgeConfigSpec.IntValue saltMaxHeight;
+    public static ForgeConfigSpec.IntValue saltVeinsByChunk;
+
     public static void init(ForgeConfigSpec.Builder builder) {
-        builder.push("config");
         seedDrops = builder.comment("If a player breaks grass, mod seeds will be dropped. [default: true]")
-                .define("seedDrops", true);
+                .define("seeds.drops", true);
         seedDropChance = builder.comment("The chance for dropping seeds by breaking grass. 5 = 5% [default: 5]")
-                .defineInRange("seedDropChance", 5, 1, 100);
+                .defineInRange("seeds.dropChance", 5, 1, 100);
+
+        oreGeneration = builder.comment("If set true, ores will be generated [default: true]")
+                .define("generation.enabled", true);
+        saltMinHeight = builder.comment("Min height where salt ore will be generated [default: 20]")
+                .defineInRange("generation.saltOre.minHeight", 20, 0, 255);
+        saltMaxHeight = builder.comment("Max height where salt ore will be generated [default: 128]")
+                .defineInRange("generation.saltOre.maxHeight", 128, 0, 255);
+        saltVeinsByChunk = builder.comment("Max veins by chunk [default: 14]")
+                .defineInRange("generation.saltOre.veinsByChunk", 14, 0, Integer.MAX_VALUE);
     }
 
 
