@@ -1,5 +1,6 @@
 package de.melanx.morexfood.util;
 
+import de.melanx.morexfood.config.ConfigHandler;
 import de.melanx.morexfood.datagen.handler.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -26,16 +27,15 @@ public class SeedDrops {
         BlockPos pos = event.getPos();
 
         if (!world.isRemote()) {
-            // TODO config to disable seed drops
-            if (player.getHeldItemMainhand().getItem() != Items.SHEARS || !player.isCreative()) {
-                if (block == Blocks.GRASS || block == Blocks.TALL_GRASS || block == Blocks.FERN) {
-                    Item seed = ModTags.SEEDS.getRandomElement(new Random());
-                    // TODO config
-                    if (Math.random() <= (double) 5 / 100) {
-                        this.dropItem(world, pos, seed);
+            if (ConfigHandler.seedDrops.get())
+                if (player.getHeldItemMainhand().getItem() != Items.SHEARS || !player.isCreative()) {
+                    if (block == Blocks.GRASS || block == Blocks.TALL_GRASS || block == Blocks.FERN) {
+                        Item seed = ModTags.SEEDS.getRandomElement(new Random());
+                        if (Math.random() <= (double) ConfigHandler.seedDropChance.get() / 100) {
+                            this.dropItem(world, pos, seed);
+                        }
                     }
                 }
-            }
         }
     }
 
