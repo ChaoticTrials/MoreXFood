@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "morexfood:horse_meat"
+  },
+  "result": "morexfood:lasagne",
+  "experience": 0.35,
+  "cookingtime": 200
+}

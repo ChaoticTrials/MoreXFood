@@ -22,6 +22,7 @@ public class Recipes extends RecipeProvider {
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
         registerSmeltingRecipes(consumer, "_smoking", IRecipeSerializer.SMOKING, 0.35F, 100);
         registerSmeltingRecipes(consumer, "_campfire", IRecipeSerializer.CAMPFIRE_COOKING, 0.35F, 600);
+        registerSmeltingRecipes(consumer, "_smelting", IRecipeSerializer.SMELTING, 0.35F, 200);
 
         registerSeedRecipe(Registry.agaricus.get(), Registry.agaricus_seed.get()).build(consumer);
         registerSeedRecipe(Registry.asparagus.get(), Registry.asparagus_seed.get()).build(consumer);

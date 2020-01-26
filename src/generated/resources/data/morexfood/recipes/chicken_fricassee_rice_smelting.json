@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "morexfood:chicken_fricassee_rice_raw"
+  },
+  "result": "morexfood:chicken_fricassee_rice",
+  "experience": 0.35,
+  "cookingtime": 200
+}
