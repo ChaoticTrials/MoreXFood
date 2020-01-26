@@ -41,7 +41,7 @@ public class MoreXFood {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     }
 
-    private void setup(FMLCommonSetupEvent event){
+    private void setup(FMLCommonSetupEvent event) {
         ModWorldGen.init();
     }
 }
