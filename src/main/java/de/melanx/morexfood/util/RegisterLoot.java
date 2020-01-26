@@ -9,9 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber
 public class RegisterLoot {
 
     @SubscribeEvent
@@ -23,16 +21,14 @@ public class RegisterLoot {
         double y = position.getY();
         double z = position.getZ();
         if (deadEntity instanceof HorseEntity) {
-            // TODO make it more pretty
-            if (world.rand.nextInt(2) == 1) {
-                event.getDrops().add(new ItemEntity(world, x, y, z, new ItemStack(Registry.horse_meat.get())));
-            } else if (world.rand.nextInt(5) == 3) {
-                event.getDrops().add(new ItemEntity(world, x, y, z, new ItemStack(Registry.horse_meat.get())));
-                event.getDrops().add(new ItemEntity(world, x, y, z, new ItemStack(Registry.horse_meat.get())));
+            if (world.rand.nextDouble() <= 0.6D) {
+                int i = world.rand.nextInt(2);
+                for (int j = 0; j <= i; j++)
+                    event.getDrops().add(new ItemEntity(world, x, y, z, new ItemStack(Registry.horse_meat.get())));
             }
         }
         if (deadEntity instanceof WolfEntity) {
-            if (world.rand.nextInt(3) == 1) {
+            if (world.rand.nextDouble() <= 0.4D) {
                 event.getDrops().add(new ItemEntity(world, x, y, z, new ItemStack(Registry.dog_goulash_raw.get())));
             }
         }

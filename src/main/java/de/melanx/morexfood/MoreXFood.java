@@ -1,5 +1,6 @@
 package de.melanx.morexfood;
 
+import de.melanx.morexfood.util.RegisterLoot;
 import de.melanx.morexfood.util.Registry;
 import de.melanx.morexfood.util.CreativeTab;
 import de.melanx.morexfood.util.SeedDrops;
@@ -27,6 +28,7 @@ public class MoreXFood {
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SeedDrops());
+        MinecraftForge.EVENT_BUS.register(new RegisterLoot());
     }
 
 //		if(ConfigBoolValues.CROP_FIELD.isEnabled()){
