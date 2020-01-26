@@ -4,8 +4,10 @@ import de.melanx.morexfood.util.RegisterLoot;
 import de.melanx.morexfood.util.Registry;
 import de.melanx.morexfood.util.CreativeTab;
 import de.melanx.morexfood.util.SeedDrops;
+import de.melanx.morexfood.world.ModWorldGen;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +31,11 @@ public class MoreXFood {
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SeedDrops());
         MinecraftForge.EVENT_BUS.register(new RegisterLoot());
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+    }
+
+    private void setup(FMLCommonSetupEvent event){
+        ModWorldGen.init();
     }
 
 //		if(ConfigBoolValues.CROP_FIELD.isEnabled()){

@@ -26,6 +26,7 @@ public class SeedDrops {
         BlockPos pos = event.getPos();
 
         if (!world.isRemote()) {
+            // TODO config to disable seed drops
             if (player.getHeldItemMainhand().getItem() != Items.SHEARS || !player.isCreative()) {
                 if (block == Blocks.GRASS || block == Blocks.TALL_GRASS || block == Blocks.FERN) {
                     Item seed = ModTags.SEEDS.getRandomElement(new Random());
