@@ -2,6 +2,7 @@ package de.melanx.morexfood;
 
 import de.melanx.morexfood.util.Registry;
 import de.melanx.morexfood.util.CreativeTab;
+import de.melanx.morexfood.util.SeedDrops;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -25,6 +26,7 @@ public class MoreXFood {
         Registry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new SeedDrops());
     }
 
 //		if(ConfigBoolValues.CROP_FIELD.isEnabled()){
