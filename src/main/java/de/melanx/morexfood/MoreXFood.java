@@ -31,6 +31,7 @@ public class MoreXFood {
         ConfigHandler.loadConfig(ConfigHandler.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-common.toml"));
 
         Registry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        Registry.FOOD.register(FMLJavaModLoadingContext.get().getModEventBus());
         Registry.SEEDS.register(FMLJavaModLoadingContext.get().getModEventBus());
         Registry.BLOCK_ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         Registry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
