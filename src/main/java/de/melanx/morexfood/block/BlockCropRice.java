@@ -22,11 +22,6 @@ public class BlockCropRice extends BaseCrop {
     }
 
     @Override
-    public int getMaxAge() {
-        return 3;
-    }
-
-    @Override
     public IItemProvider getSeedsItem() {
         return Registry.rice_seed.get();
     }

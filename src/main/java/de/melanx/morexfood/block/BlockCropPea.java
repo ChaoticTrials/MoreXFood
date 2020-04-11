@@ -22,11 +22,6 @@ public class BlockCropPea extends BaseCrop {
     }
 
     @Override
-    public int getMaxAge() {
-        return 5;
-    }
-
-    @Override
     public IItemProvider getSeedsItem() {
         return Registry.peas_seed.get();
     }

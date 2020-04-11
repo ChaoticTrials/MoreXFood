@@ -8,9 +8,6 @@
     },
     "age=2": {
       "model": "morexfood:block/crop_asparagus_2"
-    },
-    "age=3": {
-      "model": "morexfood:block/crop_asparagus_3"
     }
   }
 }

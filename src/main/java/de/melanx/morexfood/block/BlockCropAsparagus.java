@@ -10,7 +10,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.IItemProvider;
 
 public class BlockCropAsparagus extends BaseCrop {
-    private static final IntegerProperty ASPARAGUS_AGE = BlockStateProperties.AGE_0_3;
+    private static final IntegerProperty ASPARAGUS_AGE = BlockStateProperties.AGE_0_2;
 
     public BlockCropAsparagus(Properties properties) {
         super(properties);
@@ -19,11 +19,6 @@ public class BlockCropAsparagus extends BaseCrop {
     @Override
     public IntegerProperty getAgeProperty() {
         return ASPARAGUS_AGE;
-    }
-
-    @Override
-    public int getMaxAge() {
-        return 3;
     }
 
     @Override

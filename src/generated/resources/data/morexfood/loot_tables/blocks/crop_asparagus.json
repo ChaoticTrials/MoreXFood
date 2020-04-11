@@ -14,7 +14,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "morexfood:crop_asparagus",
                   "properties": {
-                    "age": "3"
+                    "age": "2"
                   }
                 }
               ],
@@ -52,7 +52,7 @@
           "condition": "minecraft:block_state_property",
           "block": "morexfood:crop_asparagus",
           "properties": {
-            "age": "3"
+            "age": "2"
           }
         }
       ]
