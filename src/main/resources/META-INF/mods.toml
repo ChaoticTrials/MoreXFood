@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[28,)"
+loaderVersion="[31,)"
 
 [[mods]]
 modId="morexfood"
@@ -13,13 +13,13 @@ This is my first mod. It's for learning how to build a mod but it's a christmas 
 [[dependencies.morevanillatools]]
     modId="forge"
     mandatory=true
-    versionRange="[28.1,)"
+    versionRange="[31.1,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.14.4]"
+    versionRange="[1.15.2]"
     ordering="NONE"
     side="BOTH"

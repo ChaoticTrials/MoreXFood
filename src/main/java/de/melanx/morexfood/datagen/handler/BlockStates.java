@@ -33,18 +33,13 @@ public class BlockStates extends BlockStateProvider {
 
     private ModelFile modelDefault(Block block) {
         String name = block.getRegistryName().getPath();
-        return getBuilder(name)
-                .parent(getExistingFile(mcLoc("block/cube_all")))
-                .texture("all", modLoc("block/" + name));
+        return models().cubeAll(name, modLoc("block/" + name));
     }
 
     private ModelFile model(Block block, BlockState state) {
         String name = block.getRegistryName().getPath();
         IntegerProperty properties = ((BaseCrop) state.getBlock()).getAgeProperty();
         name = name + "_" + state.get(properties);
-        return getBuilder(name)
-                .parent(getExistingFile(mcLoc("block/crop")))
-                .texture("crop", modLoc(String.format("block/%s", name, state.get(properties))));
-
+        return models().crop(name, modLoc(String.format("block/%s", name, state.get(properties))));
     }
 }

@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import de.melanx.morexfood.block.BaseCrop;
 import de.melanx.morexfood.util.Registry;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.LootTableProvider;
@@ -39,8 +40,8 @@ public class LootTables extends LootTableProvider {
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationResults validationresults) {
-        map.forEach((name, table) -> LootTableManager.func_215302_a(validationresults, name, table, map::get));
+    protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker) {
+        map.forEach((name, table) -> LootTableManager.func_227508_a_(validationtracker, name, table));
     }
 
     private class BlockTable extends BlockLootTables {
@@ -49,10 +50,8 @@ public class LootTables extends LootTableProvider {
             for (RegistryObject<Block> blockRegistry : Registry.BLOCKS.getEntries()) {
                 Block block = blockRegistry.get();
                 if (block instanceof BaseCrop) {
-                    IntegerProperty property = BlockStateProperties.AGE_0_3;
-                    if (((BaseCrop) block).getAgeProperty() != property)
-                        property = ((BaseCrop) block).getAgeProperty();
-                    ILootCondition.IBuilder builder = BlockStateProperty.builder(block).with(property, ((BaseCrop) block).getMaxAge());
+                    IntegerProperty property = ((BaseCrop) block).getAgeProperty();
+                    ILootCondition.IBuilder builder = BlockStateProperty.builder(block).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(property, ((BaseCrop) block).getMaxAge()));
                     registerLootTable(block, (drop) -> {
                         BaseCrop crop = (BaseCrop) block;
                         return droppingAndBonusWhen(drop, crop.getDrop(), crop.getSeed().asItem(), builder);

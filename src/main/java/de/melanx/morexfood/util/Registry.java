@@ -74,6 +74,6 @@ public class Registry {
     }
 
     private static Food buildFoodValues(int hunger, float saturation, EffectInstance effect, int chance) {
-        return new Food.Builder().hunger(hunger).saturation(saturation).effect(effect, chance).build();
+        return new Food.Builder().hunger(hunger).saturation(saturation).effect(() -> effect, chance).build();
     }
 }

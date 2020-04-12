@@ -6,10 +6,18 @@ import de.melanx.morexfood.util.RegisterLoot;
 import de.melanx.morexfood.util.Registry;
 import de.melanx.morexfood.util.SeedDrops;
 import de.melanx.morexfood.world.ModWorldGen;
+import net.minecraft.block.Block;
+import net.minecraft.block.CropsBlock;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -39,7 +47,20 @@ public class MoreXFood {
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SeedDrops());
         MinecraftForge.EVENT_BUS.register(new RegisterLoot());
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerRenderType);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private void registerRenderType(FMLClientSetupEvent event) {
+        RenderType cutout = RenderType.getCutout();
+
+        for (RegistryObject<Block> registryObject : Registry.BLOCKS.getEntries()) {
+            Block block = registryObject.get();
+            if (block instanceof CropsBlock) {
+                RenderTypeLookup.setRenderLayer(block, cutout);
+            }
+        }
     }
 
     private void setup(FMLCommonSetupEvent event) {
