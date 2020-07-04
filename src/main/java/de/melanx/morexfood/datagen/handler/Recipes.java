@@ -7,6 +7,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.crafting.CookingRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.Tag;
 import net.minecraftforge.common.Tags;
 
@@ -68,12 +69,12 @@ public class Recipes extends RecipeProvider {
         CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(Registry.dog_goulash_raw.get()), Registry.dog_goulash.get(), xp, time, serializer).addCriterion("has_raw", hasItem(Registry.dog_goulash_raw.get())).build(consumer, Registry.dog_goulash.get().getRegistryName() + method);
     }
 
-    private ShapelessRecipeBuilder registerSevenIngredientRecipe(Item result, Item ingredient1, Item ingredient2, Item ingredient3, Item ingredient4, Item ingredient5, Item ingredient6, Tag<Item> ingredient7) {
+    private ShapelessRecipeBuilder registerSevenIngredientRecipe(Item result, Item ingredient1, Item ingredient2, Item ingredient3, Item ingredient4, Item ingredient5, Item ingredient6, ITag.INamedTag<Item> ingredient7) {
         return registerSixIngredientRecipe(result, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient7)
                 .addIngredient(ingredient6);
     }
 
-    private ShapelessRecipeBuilder registerSixIngredientRecipe(Item result, Item ingredient1, Item ingredient2, Item ingredient3, Item ingredient4, Item ingredient5, Tag<Item> ingredient6) {
+    private ShapelessRecipeBuilder registerSixIngredientRecipe(Item result, Item ingredient1, Item ingredient2, Item ingredient3, Item ingredient4, Item ingredient5, ITag.INamedTag<Item> ingredient6) {
         return ShapelessRecipeBuilder.shapelessRecipe(result)
                 .addIngredient(ingredient1)
                 .addIngredient(ingredient2)

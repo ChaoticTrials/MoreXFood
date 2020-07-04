@@ -16,7 +16,7 @@ public class RegisterLoot {
     public void onLivingDrops(LivingDropsEvent event) {
         LivingEntity deadEntity = event.getEntityLiving();
         World world = deadEntity.getEntityWorld();
-        BlockPos position = deadEntity.getPosition();
+        BlockPos position = deadEntity.func_233580_cy_();
         double x = position.getX();
         double y = position.getY();
         double z = position.getZ();

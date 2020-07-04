@@ -20,11 +20,11 @@ import static de.melanx.morexfood.MoreXFood.MODID;
 
 public class Registry {
 
-    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<Item> FOOD = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<Item> SEEDS = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<Item> BLOCK_ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> FOOD = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> SEEDS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
     // blocks
     public static final RegistryObject<Block> salt_ore = BLOCKS.register("salt_ore", OreSalt::new);
