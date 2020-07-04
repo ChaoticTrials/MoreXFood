@@ -1,0 +1,20 @@
+{
+  "type": "immersiveengineering:cloche",
+  "results": [
+    {
+      "item": "morexfood:asparagus",
+      "count": 2
+    }
+  ],
+  "input": {
+    "item": "morexfood:asparagus_seed"
+  },
+  "soil": {
+    "item": "minecraft:dirt"
+  },
+  "time": 640,
+  "render": {
+    "type": "crop",
+    "block": "morexfood:crop_asparagus"
+  }
+}

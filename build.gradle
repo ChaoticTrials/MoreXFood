@@ -81,11 +81,16 @@ repositories {
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
+    maven {
+        name = "IE"
+        url = "https://maven.blamejared.com/"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2")
+    compile fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${ie_version}")
 }
 
 jar {

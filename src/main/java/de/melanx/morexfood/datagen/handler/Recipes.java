@@ -1,14 +1,22 @@
 package de.melanx.morexfood.datagen.handler;
 
+import blusunrize.immersiveengineering.api.crafting.ClocheRenderFunction;
+import blusunrize.immersiveengineering.api.crafting.builders.ClocheRecipeBuilder;
+import de.melanx.morexfood.util.IModSeed;
 import de.melanx.morexfood.util.Registry;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.CookingRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.fml.RegistryObject;
 
 import java.util.function.Consumer;
 
@@ -24,10 +32,13 @@ public class Recipes extends RecipeProvider {
         registerSmeltingRecipes(consumer, "_campfire", IRecipeSerializer.CAMPFIRE_COOKING, 0.35F, 600);
         registerSmeltingRecipes(consumer, "_smelting", IRecipeSerializer.SMELTING, 0.35F, 200);
 
-        registerSeedRecipe(Registry.agaricus.get(), Registry.agaricus_seed.get()).build(consumer);
-        registerSeedRecipe(Registry.asparagus.get(), Registry.asparagus_seed.get()).build(consumer);
-        registerSeedRecipe(Registry.peas.get(), Registry.peas_seed.get()).build(consumer);
-        registerSeedRecipe(Registry.rice.get(), Registry.rice_seed.get()).build(consumer);
+        for (RegistryObject<Item> entry : Registry.SEEDS.getEntries()) {
+            Item seed = entry.get();
+            Item crop = ((IModSeed) seed).getCrop();
+            Block cropBlock = ((IModSeed) seed).getCropBlock();
+            registerSeedRecipe(crop, seed).build(consumer);
+            registerClocheRecipe(crop, seed, cropBlock).build(consumer, new ResourceLocation("immersiveengineering", "cloche/" + crop.getRegistryName().getPath()));
+        }
 
         registerPiecesRecipe(Registry.asparagus_pieces.get(), Registry.asparagus.get()).build(consumer);
         registerPiecesRecipe(Registry.carrot_pieces.get(), Items.CARROT).build(consumer);
@@ -114,6 +125,14 @@ public class Recipes extends RecipeProvider {
         return ShapelessRecipeBuilder.shapelessRecipe(seed)
                 .addIngredient(crop)
                 .addCriterion("has_item", hasItem(crop));
+    }
+
+    private ClocheRecipeBuilder registerClocheRecipe(Item crop, Item seed, Block cropBlock) {
+        return ClocheRecipeBuilder.builder(new ItemStack(crop, 2))
+                .addInput(seed)
+                .addSoil(Blocks.DIRT)
+                .setTime(640)
+                .setRender(new ClocheRenderFunction.ClocheRenderReference("crop", cropBlock));
     }
 
 }
