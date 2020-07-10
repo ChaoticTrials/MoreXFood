@@ -3,11 +3,11 @@ package de.melanx.morexfood.util;
 import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.block.*;
 import de.melanx.morexfood.items.ItemKnife;
+import de.melanx.morexfood.items.ModSeed;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.potion.EffectInstance;
@@ -41,12 +41,6 @@ public class Registry {
     public static final RegistryObject<Item> ice_cubes = ITEMS.register("ice_cubes", () -> new Item(itemProps));
     public static final RegistryObject<Item> dust_salt = ITEMS.register("salt", () -> new Item(itemProps));
 
-    // seeds
-    public static final RegistryObject<Item> agaricus_seed = SEEDS.register("agaricus_seed", () -> new BlockNamedItem(agaricus_block.get(), itemProps));
-    public static final RegistryObject<Item> asparagus_seed = SEEDS.register("asparagus_seed", () -> new BlockNamedItem(asparagus_block.get(), itemProps));
-    public static final RegistryObject<Item> peas_seed = SEEDS.register("peas_seed", () -> new BlockNamedItem(peas_block.get(), itemProps));
-    public static final RegistryObject<Item> rice_seed = SEEDS.register("rice_seed", () -> new BlockNamedItem(rice_block.get(), itemProps));
-
     // food
     public static final RegistryObject<Item> agaricus = FOOD.register("agaricus", () -> new Item(itemProps.food(buildFoodValues(1, 0.6F))));
     public static final RegistryObject<Item> asparagus = FOOD.register("asparagus", () -> new Item(itemProps.food(buildFoodValues(1, 0.5F))));
@@ -68,6 +62,12 @@ public class Registry {
     public static final RegistryObject<Item> mixed_vegetables = FOOD.register("mixed_vegetables", () -> new Item(itemProps.food(buildFoodValues(3, 0.8F))));
     public static final RegistryObject<Item> peas = FOOD.register("peas", () -> new Item(itemProps.food(buildFoodValues(1, 0.5F))));
     public static final RegistryObject<Item> rice = FOOD.register("rice", () -> new Item(itemProps.food(buildFoodValues(1, 0.5F))));
+
+    // seeds
+    public static final RegistryObject<Item> agaricus_seed = SEEDS.register("agaricus_seed", () -> new ModSeed(agaricus_block.get(), agaricus.get(), agaricus_block.get(), itemProps));
+    public static final RegistryObject<Item> asparagus_seed = SEEDS.register("asparagus_seed", () -> new ModSeed(asparagus_block.get(), asparagus.get(), asparagus_block.get(), itemProps));
+    public static final RegistryObject<Item> peas_seed = SEEDS.register("peas_seed", () -> new ModSeed(peas_block.get(), peas.get(), peas_block.get(), itemProps));
+    public static final RegistryObject<Item> rice_seed = SEEDS.register("rice_seed", () -> new ModSeed(rice_block.get(), rice.get(), rice_block.get(), itemProps));
 
     private static Food buildFoodValues(int hunger, float saturation) {
         return new Food.Builder().hunger(hunger).saturation(saturation).build();

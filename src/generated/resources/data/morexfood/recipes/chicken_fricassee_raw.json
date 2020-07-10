@@ -2,6 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
+      "tag": "forge:mushrooms"
+    },
+    {
       "item": "morexfood:mixed_vegetables"
     },
     {
@@ -15,9 +18,6 @@
     },
     {
       "item": "minecraft:water_bucket"
-    },
-    {
-      "tag": "forge:mushrooms"
     }
   ],
   "result": {

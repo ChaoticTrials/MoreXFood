@@ -6,22 +6,12 @@
     ]
   },
   "criteria": {
-    "has_ingredient1": {
+    "has_material": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "morexfood:carrot_pieces"
-          }
-        ]
-      }
-    },
-    "has_ingredient2": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "morexfood:peas"
+            "item": "morexfood:mixed_vegetables"
           }
         ]
       }
@@ -35,8 +25,7 @@
   },
   "requirements": [
     [
-      "has_ingredient1",
-      "has_ingredient2",
+      "has_material",
       "has_the_recipe"
     ]
   ]
