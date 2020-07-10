@@ -2,12 +2,15 @@
   "type": "immersiveengineering:cloche",
   "results": [
     {
-      "item": "morexfood:agaricus",
+      "item": "morexfood:asparagus",
       "count": 2
+    },
+    {
+      "item": "morexfood:asparagus_seed"
     }
   ],
   "input": {
-    "item": "morexfood:agaricus_seed"
+    "item": "morexfood:asparagus_seed"
   },
   "soil": {
     "item": "minecraft:dirt"
@@ -15,6 +18,6 @@
   "time": 640,
   "render": {
     "type": "crop",
-    "block": "morexfood:crop_agaricus"
+    "block": "morexfood:crop_asparagus"
   }
 }
