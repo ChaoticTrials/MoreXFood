@@ -10,7 +10,6 @@ import net.minecraft.data.LootTableProvider;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.conditions.BlockStateProperty;
@@ -49,9 +48,7 @@ public class LootTables extends LootTableProvider {
             for (RegistryObject<Block> blockRegistry : Registry.BLOCKS.getEntries()) {
                 Block block = blockRegistry.get();
                 if (block instanceof BaseCrop) {
-                    IntegerProperty property = BlockStateProperties.AGE_0_3;
-                    if (((BaseCrop) block).getAgeProperty() != property)
-                        property = ((BaseCrop) block).getAgeProperty();
+                    IntegerProperty property = ((BaseCrop) block).getAgeProperty();
                     ILootCondition.IBuilder builder = BlockStateProperty.builder(block).with(property, ((BaseCrop) block).getMaxAge());
                     registerLootTable(block, (drop) -> {
                         BaseCrop crop = (BaseCrop) block;
