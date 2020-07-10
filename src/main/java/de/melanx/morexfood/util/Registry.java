@@ -64,7 +64,7 @@ public class Registry {
     public static final RegistryObject<Item> rice = FOOD.register("rice", () -> new Item(itemProps.food(buildFoodValues(1, 0.5F))));
 
     // seeds
-    public static final RegistryObject<Item> agaricus_seed = SEEDS.register("agaricus_seed", () -> new ModSeed(agaricus_block.get(), agaricus.get(), asparagus_block.get(), itemProps));
+    public static final RegistryObject<Item> agaricus_seed = SEEDS.register("agaricus_seed", () -> new ModSeed(agaricus_block.get(), agaricus.get(), agaricus_block.get(), itemProps));
     public static final RegistryObject<Item> asparagus_seed = SEEDS.register("asparagus_seed", () -> new ModSeed(asparagus_block.get(), asparagus.get(), asparagus_block.get(), itemProps));
     public static final RegistryObject<Item> peas_seed = SEEDS.register("peas_seed", () -> new ModSeed(peas_block.get(), peas.get(), peas_block.get(), itemProps));
     public static final RegistryObject<Item> rice_seed = SEEDS.register("rice_seed", () -> new ModSeed(rice_block.get(), rice.get(), rice_block.get(), itemProps));
