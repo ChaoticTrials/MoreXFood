@@ -2,9 +2,8 @@ package de.melanx.morexfood;
 
 import de.melanx.morexfood.config.ConfigHandler;
 import de.melanx.morexfood.util.CreativeTab;
-import de.melanx.morexfood.util.RegisterLoot;
+import de.melanx.morexfood.util.Events;
 import de.melanx.morexfood.util.Registry;
-import de.melanx.morexfood.util.SeedDrops;
 import de.melanx.morexfood.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
@@ -45,8 +44,7 @@ public class MoreXFood {
         Registry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new SeedDrops());
-        MinecraftForge.EVENT_BUS.register(new RegisterLoot());
+        MinecraftForge.EVENT_BUS.register(Events.class);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerRenderType);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     }
