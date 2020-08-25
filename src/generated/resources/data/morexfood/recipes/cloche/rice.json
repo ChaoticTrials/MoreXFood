@@ -1,0 +1,23 @@
+{
+  "type": "immersiveengineering:cloche",
+  "results": [
+    {
+      "item": "morexfood:rice",
+      "count": 2
+    },
+    {
+      "item": "morexfood:rice_seed"
+    }
+  ],
+  "input": {
+    "item": "morexfood:rice_seed"
+  },
+  "soil": {
+    "item": "minecraft:dirt"
+  },
+  "time": 640,
+  "render": {
+    "type": "crop",
+    "block": "morexfood:crop_rice"
+  }
+}

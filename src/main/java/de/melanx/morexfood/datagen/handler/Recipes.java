@@ -1,18 +1,21 @@
 package de.melanx.morexfood.datagen.handler;
 
-//import blusunrize.immersiveengineering.api.crafting.ClocheRenderFunction;
-//import blusunrize.immersiveengineering.api.crafting.builders.ClocheRecipeBuilder;
-
+import blusunrize.immersiveengineering.api.crafting.ClocheRenderFunction;
+import blusunrize.immersiveengineering.api.crafting.builders.ClocheRecipeBuilder;
+import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.util.IModSeed;
 import de.melanx.morexfood.util.Registry;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.CookingRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -38,7 +41,7 @@ public class Recipes extends RecipeProvider {
             Item crop = ((IModSeed) seed).getCrop();
             Block cropBlock = ((IModSeed) seed).getCropBlock();
             registerSeedRecipe(crop, seed).build(consumer);
-//            registerClocheRecipe(crop, seed, cropBlock).build(consumer, new ResourceLocation(MoreXFood.MODID, "cloche/" + crop.getRegistryName().getPath()));
+            registerClocheRecipe(crop, seed, cropBlock).build(consumer, new ResourceLocation(MoreXFood.MODID, "cloche/" + crop.getRegistryName().getPath()));
         }
 
         registerPiecesRecipe(Registry.asparagus_pieces.get(), Registry.asparagus.get()).build(consumer);
@@ -107,13 +110,13 @@ public class Recipes extends RecipeProvider {
                 .addCriterion("has_item", hasItem(crop));
     }
 
-//    private ClocheRecipeBuilder registerClocheRecipe(Item crop, Item seed, Block cropBlock) {
-//        return ClocheRecipeBuilder.builder(new ItemStack(crop, 2))
-//                .addResult(seed)
-//                .addInput(seed)
-//                .addSoil(Blocks.DIRT)
-//                .setTime(640)
-//                .setRender(new ClocheRenderFunction.ClocheRenderReference("crop", cropBlock));
-//    }
+    private ClocheRecipeBuilder registerClocheRecipe(Item crop, Item seed, Block cropBlock) {
+        return ClocheRecipeBuilder.builder(new ItemStack(crop, 2))
+                .addResult(seed)
+                .addInput(seed)
+                .addSoil(Blocks.DIRT)
+                .setTime(640)
+                .setRender(new ClocheRenderFunction.ClocheRenderReference("crop", cropBlock));
+    }
 
 }
