@@ -35,8 +35,10 @@ public class ModTags extends ItemTagsProvider {
 
     @Override
     protected void registerTags() {
-        for (RegistryObject<Item> seed : Registry.SEEDS.getEntries())
+        for (RegistryObject<Item> seed : Registry.SEEDS.getEntries()) {
             getBuilder(SEEDS).add(seed.get());
+            getBuilder(Tags.Items.SEEDS).add(seed.get());
+        }
 
         getBuilder(AGARICUS_SEEDS).add(Registry.agaricus_seed.get());
         getBuilder(ASPARAGUS_SEEDS).add(Registry.asparagus_seed.get());
