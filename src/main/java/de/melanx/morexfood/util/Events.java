@@ -30,7 +30,7 @@ public class Events {
     public static void onLivingDrops(LivingDropsEvent event) {
         LivingEntity deadEntity = event.getEntityLiving();
         World world = deadEntity.getEntityWorld();
-        BlockPos position = deadEntity.func_233580_cy_();
+        BlockPos position = deadEntity.getPosition();
         double x = position.getX();
         double y = position.getY();
         double z = position.getZ();

@@ -36,17 +36,19 @@ public class ModTags extends ItemTagsProvider {
 
     @Override
     protected void registerTags() {
-        for (RegistryObject<Item> seed : Registry.SEEDS.getEntries())
-            func_240522_a_(SEEDS).func_240534_a_(seed.get());
+        for (RegistryObject<Item> seed : Registry.SEEDS.getEntries()) {
+            getOrCreateBuilder(SEEDS).add(seed.get());
+            getOrCreateBuilder(Tags.Items.SEEDS).add(seed.get());
+        }
 
-        func_240522_a_(AGARICUS_SEEDS).func_240534_a_(Registry.agaricus_seed.get());
-        func_240522_a_(ASPARAGUS_SEEDS).func_240534_a_(Registry.asparagus_seed.get());
-        func_240522_a_(PEAS_SEEDS).func_240534_a_(Registry.peas_seed.get());
-        func_240522_a_(RICE_SEEDS).func_240534_a_(Registry.rice_seed.get());
+        getOrCreateBuilder(AGARICUS_SEEDS).add(Registry.agaricus_seed.get());
+        getOrCreateBuilder(ASPARAGUS_SEEDS).add(Registry.asparagus_seed.get());
+        getOrCreateBuilder(PEAS_SEEDS).add(Registry.peas_seed.get());
+        getOrCreateBuilder(RICE_SEEDS).add(Registry.rice_seed.get());
 
         for (RegistryObject<Item> food : Registry.FOOD.getEntries())
-            func_240522_a_(FOOD).func_240534_a_(food.get());
-        func_240522_a_(FOOD).func_240534_a_(Items.APPLE, Items.MUSHROOM_STEW, Items.BREAD, Items.PORKCHOP,
+            getOrCreateBuilder(FOOD).add(food.get());
+        getOrCreateBuilder(FOOD).add(Items.APPLE, Items.MUSHROOM_STEW, Items.BREAD, Items.PORKCHOP,
                 Items.COOKED_PORKCHOP, Items.GOLDEN_APPLE, Items.ENCHANTED_GOLDEN_APPLE, Items.COD, Items.SALMON,
                 Items.TROPICAL_FISH, Items.PUFFERFISH, Items.COOKED_COD, Items.COOKED_SALMON, Items.COOKIE, Items.BEEF,
                 Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.ROTTEN_FLESH, Items.SPIDER_EYE,
@@ -55,6 +57,6 @@ public class ModTags extends ItemTagsProvider {
                 Items.COOKED_MUTTON, Items.CHORUS_FRUIT, Items.BEETROOT, Items.BEETROOT_SOUP, Items.SUSPICIOUS_STEW,
                 Items.SWEET_BERRIES);
 
-        func_240522_a_(Tags.Items.MUSHROOMS).func_240534_a_(Registry.agaricus.get());
+        getOrCreateBuilder(Tags.Items.MUSHROOMS).add(Registry.agaricus.get());
     }
 }
