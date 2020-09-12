@@ -9,8 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.RegistryObject;
@@ -49,7 +47,6 @@ public class MoreXFood {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     }
 
-    @OnlyIn(Dist.CLIENT)
     private void registerRenderType(FMLClientSetupEvent event) {
         RenderType cutout = RenderType.getCutout();
 
