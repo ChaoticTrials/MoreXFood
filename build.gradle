@@ -62,7 +62,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-    compile fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${ie_version}")
+    compile fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${mc_version}-${ie_version}")
 }
 
 jar {

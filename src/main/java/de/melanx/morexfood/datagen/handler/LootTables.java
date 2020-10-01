@@ -19,6 +19,7 @@ import net.minecraft.state.IntegerProperty;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -31,6 +32,7 @@ public class LootTables extends LootTableProvider {
         super(gen);
     }
 
+    @Nonnull
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
         return ImmutableList.of(
@@ -39,11 +41,11 @@ public class LootTables extends LootTableProvider {
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker) {
-        map.forEach((name, table) -> LootTableManager.func_227508_a_(validationtracker, name, table));
+    protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationTracker validationtracker) {
+        map.forEach((name, table) -> LootTableManager.validateLootTable(validationtracker, name, table));
     }
 
-    private class BlockTable extends BlockLootTables {
+    private static class BlockTable extends BlockLootTables {
         @Override
         protected void addTables() {
             for (RegistryObject<Block> blockRegistry : Registry.BLOCKS.getEntries()) {
@@ -61,6 +63,7 @@ public class LootTables extends LootTableProvider {
             }
         }
 
+        @Nonnull
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return Registry.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;

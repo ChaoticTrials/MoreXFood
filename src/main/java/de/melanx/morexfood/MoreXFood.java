@@ -10,6 +10,7 @@ import net.minecraft.block.CropsBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -43,6 +44,7 @@ public class MoreXFood {
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(Events.class);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, ModWorldGen::onBiomeLoad);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerRenderType);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     }

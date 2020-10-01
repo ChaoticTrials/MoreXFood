@@ -9,10 +9,12 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class ModWorldGen {
@@ -25,27 +27,31 @@ public class ModWorldGen {
     public static void init() {
         SALT_FEATURE = getFeature(Registry.salt_ore.get(), Feature.ORE);
         MoreXFood.LOGGER.info("Registering ore generation");
-        ForgeRegistries.BIOMES.forEach(biome -> {
-            if (isValidBiome(biome)) {
-                addFeature(biome, SALT_FEATURE);
-            }
-        });
     }
 
-    private static boolean isValidBiome(Biome biome) {
-        return biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND;
-    }
-
-    private static void addFeature(Biome biome, @Nullable ConfiguredFeature<?, ?> feature) {
-        if (feature != null) {
-            biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, feature);
+    public static void onBiomeLoad(BiomeLoadingEvent event) {
+        if (isValidBiome(event.getCategory())) {
+            BiomeGenerationSettingsBuilder generation = event.getGeneration();
+            addFeature(generation, SALT_FEATURE);
         }
     }
 
-    @Nullable
+    private static boolean isValidBiome(Biome.Category biomeCategory) {
+        return biomeCategory != Biome.Category.NETHER && biomeCategory != Biome.Category.THEEND;
+    }
+
+    private static void addFeature(BiomeGenerationSettingsBuilder generation, @Nullable ConfiguredFeature<?, ?> feature) {
+        if (feature != null) {
+            generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, feature);
+        }
+    }
+
+    @Nonnull
     private static ConfiguredFeature<?, ?> getFeature(Block block, Feature<OreFeatureConfig> feature) {
-        return feature.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-                block.getDefaultState(), 6)).withPlacement(Placement.COUNT_RANGE.configure(
-                new CountRangeConfig(veinsByChunk, minHeight, 0, maxHeight)));
+        return feature.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a,
+                block.getDefaultState(), 6))
+                .withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight - minHeight)))
+                .func_242728_a()
+                .func_242731_b(veinsByChunk);
     }
 }
