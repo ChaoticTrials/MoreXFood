@@ -155,7 +155,7 @@ curseforge {
     project {
         if (project.hasProperty('curse_project')) {
             id = "${curse_project}"
-            releaseType = 'alpha'
+            releaseType = 'release'
             changelog = getGitChangelog()
             println(changelog)
             changelogType = 'markdown'
