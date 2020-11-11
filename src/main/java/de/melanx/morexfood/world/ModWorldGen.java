@@ -48,10 +48,10 @@ public class ModWorldGen {
 
     @Nonnull
     private static ConfiguredFeature<?, ?> getFeature(Block block, Feature<OreFeatureConfig> feature) {
-        return feature.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a,
+        return feature.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
                 block.getDefaultState(), 6))
-                .withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight - minHeight)))
-                .func_242728_a()
+                .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight - minHeight)))
+                .square()
                 .func_242731_b(veinsByChunk);
     }
 }
