@@ -22,6 +22,7 @@ public class DataCreator {
             ModTags.ModBlocks blockTagsProvider = new ModTags.ModBlocks(generator, helper);
             generator.addProvider(blockTagsProvider);
             generator.addProvider(new ModTags.ModItems(generator, blockTagsProvider, helper));
+            generator.addProvider(new LootModifiers(generator));
         }
         if (event.includeClient()) {
             generator.addProvider(new ItemModels(generator, helper));

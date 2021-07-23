@@ -19,7 +19,7 @@ public class ConfigHandler {
     }
 
     public static ForgeConfigSpec.BooleanValue seedDrops;
-    public static ForgeConfigSpec.IntValue seedDropChance;
+    public static ForgeConfigSpec.DoubleValue seedDropChance;
 
     public static ForgeConfigSpec.BooleanValue oreGeneration;
     public static ForgeConfigSpec.IntValue saltMinHeight;
@@ -29,8 +29,8 @@ public class ConfigHandler {
     public static void init(ForgeConfigSpec.Builder builder) {
         seedDrops = builder.comment("If a player breaks grass, mod seeds will be dropped. [default: true]")
                 .define("seeds.drops", true);
-        seedDropChance = builder.comment("The chance for dropping seeds by breaking grass. 5 = 5% [default: 5]")
-                .defineInRange("seeds.dropChance", 5, 1, 100);
+        seedDropChance = builder.comment("The chance for dropping seeds by breaking grass. [default: 0.05]")
+                .defineInRange("seeds.dropChance", 0.05, 0, 1);
 
         oreGeneration = builder.comment("If set true, ores will be generated [default: true]")
                 .define("generation.enabled", true);

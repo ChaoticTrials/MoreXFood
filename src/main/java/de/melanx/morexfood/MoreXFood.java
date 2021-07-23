@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -36,17 +37,19 @@ public class MoreXFood {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.COMMON_CONFIG);
         ConfigHandler.loadConfig(ConfigHandler.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-common.toml"));
 
-        ModRegistration.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ModRegistration.FOOD.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ModRegistration.SEEDS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ModRegistration.BLOCK_ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ModRegistration.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModRegistration.ITEMS.register(bus);
+        ModRegistration.FOOD.register(bus);
+        ModRegistration.SEEDS.register(bus);
+        ModRegistration.BLOCK_ITEMS.register(bus);
+        ModRegistration.BLOCKS.register(bus);
+        ModRegistration.LOOT_MODIFIERS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(Events.class);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, ModWorldGen::onBiomeLoad);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerRenderType);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        bus.addListener(this::registerRenderType);
+        bus.addListener(this::setup);
     }
 
     private void registerRenderType(FMLClientSetupEvent event) {

@@ -4,6 +4,9 @@ import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.block.*;
 import de.melanx.morexfood.items.ContainerItem;
 import de.melanx.morexfood.items.ModSeed;
+import de.melanx.morexfood.modifier.HorseDrops;
+import de.melanx.morexfood.modifier.SeedModifier;
+import de.melanx.morexfood.modifier.WolfDrops;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -12,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,6 +31,7 @@ public class ModRegistration {
     public static final DeferredRegister<Item> SEEDS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, MODID);
 
     // blocks
     public static final RegistryObject<Block> salt_ore = BLOCKS.register("salt_ore", OreSalt::new);
@@ -68,6 +73,11 @@ public class ModRegistration {
     public static final RegistryObject<Item> asparagus_seed = SEEDS.register("asparagus_seed", () -> new ModSeed(asparagus_block.get(), ModRegistration.itemProps()));
     public static final RegistryObject<Item> peas_seed = SEEDS.register("peas_seed", () -> new ModSeed(peas_block.get(), ModRegistration.itemProps()));
     public static final RegistryObject<Item> rice_seed = SEEDS.register("rice_seed", () -> new ModSeed(rice_block.get(), ModRegistration.itemProps()));
+
+    // loot modifiers
+    public static final RegistryObject<GlobalLootModifierSerializer<SeedModifier>> seed_modifier = LOOT_MODIFIERS.register("seeds", SeedModifier.Serializer::new);
+    public static final RegistryObject<GlobalLootModifierSerializer<HorseDrops>> horse_modifier = LOOT_MODIFIERS.register("horse", HorseDrops.Serializer::new);
+    public static final RegistryObject<GlobalLootModifierSerializer<WolfDrops>> wolf_modifier = LOOT_MODIFIERS.register("wolf", WolfDrops.Serializer::new);
 
     private static FoodProperties buildFoodValues(int hunger, float saturation) {
         return new FoodProperties.Builder().nutrition(hunger).saturationMod(saturation).build();

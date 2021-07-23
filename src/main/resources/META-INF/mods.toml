@@ -9,19 +9,19 @@ displayName = "More XFood"
 updateJSONURL = "https://raw.githubusercontent.com/MelanX/mod-updatechecker-files/master/morexfood.json"
 authors = "MelanX"
 description = '''
-This is my first mod. It's for learning how to build a mod but it's a christmas present for my girlfriend, too. It adds her favourite food and a few ingredients for this.
-'''
+    This is my first mod. It's for learning how to build a mod but it's a christmas present for my girlfriend, too. It adds her favourite food and a few ingredients for this.
+    '''
 
 [[dependencies.morexfood]]
-    modId="forge"
+modId = "forge"
 mandatory = true
 versionRange = "[37,)"
 ordering = "NONE"
-    side="BOTH"
+side = "BOTH"
 
 [[dependencies.morexfood]]
-    modId="minecraft"
+modId = "minecraft"
 mandatory = true
 versionRange = "[1.17.1,)"
 ordering = "NONE"
-    side="BOTH"
+side = "BOTH"
