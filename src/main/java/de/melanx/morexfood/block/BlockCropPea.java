@@ -9,6 +9,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
+import javax.annotation.Nonnull;
+
 public class BlockCropPea extends BaseCrop {
     private static final IntegerProperty PEAS_AGE = BlockStateProperties.AGE_5;
 
@@ -16,11 +18,13 @@ public class BlockCropPea extends BaseCrop {
         super(properties);
     }
 
+    @Nonnull
     @Override
     public IntegerProperty getAgeProperty() {
         return PEAS_AGE;
     }
 
+    @Nonnull
     @Override
     public ItemLike getBaseSeedId() {
         return Registry.peas_seed.get();

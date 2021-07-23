@@ -28,32 +28,32 @@ public class Recipes extends RecipeProvider {
 
     @Override
     protected void buildCraftingRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
-        registerSmeltingRecipes(consumer, "_smoking", RecipeSerializer.SMOKING_RECIPE, 0.35F, 100);
-        registerSmeltingRecipes(consumer, "_campfire", RecipeSerializer.CAMPFIRE_COOKING_RECIPE, 0.35F, 600);
-        registerSmeltingRecipes(consumer, "_smelting", RecipeSerializer.SMELTING_RECIPE, 0.35F, 200);
+        this.registerSmeltingRecipes(consumer, "_smoking", RecipeSerializer.SMOKING_RECIPE, 0.35F, 100);
+        this.registerSmeltingRecipes(consumer, "_campfire", RecipeSerializer.CAMPFIRE_COOKING_RECIPE, 0.35F, 600);
+        this.registerSmeltingRecipes(consumer, "_smelting", RecipeSerializer.SMELTING_RECIPE, 0.35F, 200);
 
         for (RegistryObject<Item> entry : Registry.SEEDS.getEntries()) {
             Item seed = entry.get();
             Item crop = ((IModSeed) seed).getCrop();
             Block cropBlock = ((IModSeed) seed).getCropBlock();
-            registerSeedRecipe(crop, seed).save(consumer);
+            this.registerSeedRecipe(crop, seed).save(consumer);
             // TODO re-add when IE is ported
 //            registerClocheRecipe(crop, seed, cropBlock).build(consumer, new ResourceLocation(MoreXFood.MODID, "cloche/" + crop.getRegistryName().getPath()));
         }
 
-        registerPiecesRecipe(Registry.asparagus_pieces.get(), Registry.asparagus.get()).save(consumer);
-        registerPiecesRecipe(Registry.carrot_pieces.get(), Items.CARROT).save(consumer);
-        registerPiecesRecipe(Registry.chicken_pieces.get(), Items.CHICKEN).save(consumer);
+        this.registerPiecesRecipe(Registry.asparagus_pieces.get(), Registry.asparagus.get()).save(consumer);
+        this.registerPiecesRecipe(Registry.carrot_pieces.get(), Items.CARROT).save(consumer);
+        this.registerPiecesRecipe(Registry.chicken_pieces.get(), Items.CHICKEN).save(consumer);
 
-        registerShapelessRecipe(Registry.ice_cream.get(), null, Arrays.asList(Registry.ice_cubes.get(), Items.MILK_BUCKET)).save(consumer);
-        registerShapelessRecipe(Registry.chicken_fricassee_rice.get(), null, Arrays.asList(Registry.rice.get(), Registry.chicken_fricassee.get())).save(consumer);
-        registerShapelessRecipe(Registry.mixed_vegetables.get(), null, Arrays.asList(Registry.carrot_pieces.get(), Registry.peas.get())).save(consumer);
-        registerShapelessRecipe(Registry.chicken_fricassee_rice_raw.get(), null, Arrays.asList(Registry.chicken_fricassee.get(), Registry.rice.get())).save(consumer, Registry.chicken_fricassee_rice_raw.get().getRegistryName() + "_simple");
+        this.registerShapelessRecipe(Registry.ice_cream.get(), null, Arrays.asList(Registry.ice_cubes.get(), Items.MILK_BUCKET)).save(consumer);
+        this.registerShapelessRecipe(Registry.chicken_fricassee_rice.get(), null, Arrays.asList(Registry.rice.get(), Registry.chicken_fricassee.get())).save(consumer);
+        this.registerShapelessRecipe(Registry.mixed_vegetables.get(), null, Arrays.asList(Registry.carrot_pieces.get(), Registry.peas.get())).save(consumer);
+        this.registerShapelessRecipe(Registry.chicken_fricassee_rice_raw.get(), null, Arrays.asList(Registry.chicken_fricassee.get(), Registry.rice.get())).save(consumer, Registry.chicken_fricassee_rice_raw.get().getRegistryName() + "_simple");
 
-        registerShapelessRecipe(Registry.chicken_fricassee_raw.get(), Collections.singletonList(Tags.Items.MUSHROOMS), Arrays.asList(Registry.mixed_vegetables.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.dust_salt.get(), Items.WATER_BUCKET)).save(consumer);
-        registerShapelessRecipe(Registry.chicken_fricassee_special_raw.get(), null, Arrays.asList(Registry.carrot_pieces.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.rice.get(), Registry.dust_salt.get(), Items.WATER_BUCKET)).save(consumer);
+        this.registerShapelessRecipe(Registry.chicken_fricassee_raw.get(), Collections.singletonList(Tags.Items.MUSHROOMS), Arrays.asList(Registry.mixed_vegetables.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.dust_salt.get(), Items.WATER_BUCKET)).save(consumer);
+        this.registerShapelessRecipe(Registry.chicken_fricassee_special_raw.get(), null, Arrays.asList(Registry.carrot_pieces.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.rice.get(), Registry.dust_salt.get(), Items.WATER_BUCKET)).save(consumer);
 
-        registerShapelessRecipe(Registry.chicken_fricassee_rice_raw.get(), Collections.singletonList(Tags.Items.MUSHROOMS), Arrays.asList(Registry.mixed_vegetables.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.rice.get(), Registry.dust_salt.get(), Items.WATER_BUCKET)).save(consumer, Registry.chicken_fricassee_rice_raw.get().getRegistryName() + "_complex");
+        this.registerShapelessRecipe(Registry.chicken_fricassee_rice_raw.get(), Collections.singletonList(Tags.Items.MUSHROOMS), Arrays.asList(Registry.mixed_vegetables.get(), Registry.asparagus_pieces.get(), Registry.chicken_pieces.get(), Registry.rice.get(), Registry.dust_salt.get(), Items.WATER_BUCKET)).save(consumer, Registry.chicken_fricassee_rice_raw.get().getRegistryName() + "_complex");
 
         ShapedRecipeBuilder.shaped(Registry.knife.get())
                 .define('s', Items.STICK)
@@ -71,6 +71,7 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("has_material", has(Registry.ice_cubes.get())).save(consumer);
     }
 
+    @SuppressWarnings("SameParameterValue")
     private void registerSmeltingRecipes(Consumer<FinishedRecipe> consumer, String method, SimpleCookingSerializer<?> serializer, float xp, int time) {
         SimpleCookingRecipeBuilder.cooking(Ingredient.of(Registry.chicken_fricassee_raw.get()), Registry.chicken_fricassee.get(), xp, time, serializer).unlockedBy("has_raw", has(Registry.chicken_fricassee_raw.get())).save(consumer, Registry.chicken_fricassee.get().getRegistryName() + method);
         SimpleCookingRecipeBuilder.cooking(Ingredient.of(Registry.chicken_fricassee_rice_raw.get()), Registry.chicken_fricassee_rice.get(), xp, time, serializer).unlockedBy("has_raw", has(Registry.chicken_fricassee_rice_raw.get())).save(consumer, Registry.chicken_fricassee_rice.get().getRegistryName() + method);

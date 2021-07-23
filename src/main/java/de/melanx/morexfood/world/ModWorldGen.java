@@ -45,10 +45,11 @@ public class ModWorldGen {
         }
     }
 
+    @SuppressWarnings("SameParameterValue")
     @Nonnull
-    private static ConfiguredFeature<?, ?> getFeature(Block block, @SuppressWarnings("SameParameterValue") Feature<OreConfiguration> feature) {
+    private static ConfiguredFeature<?, ?> getFeature(Block block, Feature<OreConfiguration> feature) {
         return feature.configured(new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE,
-                block.defaultBlockState(), 6))
+                block.defaultBlockState(), 10))
                 .rangeUniform(VerticalAnchor.aboveBottom(MIN_HEIGHT), VerticalAnchor.belowTop(MAX_HEIGHT))
                 .squared()
                 .count(VEINS_BY_CHUNK);

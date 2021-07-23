@@ -25,21 +25,23 @@ public class BlockStates extends BlockStateProvider {
         for (RegistryObject<Block> blockRegistry : Registry.BLOCKS.getEntries()) {
             Block block = blockRegistry.get();
             if (!(block instanceof OreSalt))
-                getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(model(block, state)).build());
+                this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(this.model(block, state)).build());
             else
-                getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(modelDefault(block)).build());
+                this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(this.modelDefault(block)).build());
         }
     }
 
     private ModelFile modelDefault(Block block) {
+        //noinspection ConstantConditions
         String name = block.getRegistryName().getPath();
-        return models().cubeAll(name, modLoc("block/" + name));
+        return this.models().cubeAll(name, this.modLoc("block/" + name));
     }
 
     private ModelFile model(Block block, BlockState state) {
+        //noinspection ConstantConditions
         String name = block.getRegistryName().getPath();
         IntegerProperty properties = ((BaseCrop) state.getBlock()).getAgeProperty();
         name = name + "_" + state.getValue(properties);
-        return models().crop(name, modLoc(String.format("block/%s", name, state.getValue(properties))));
+        return this.models().crop(name, this.modLoc(String.format("block/%s", name)));
     }
 }

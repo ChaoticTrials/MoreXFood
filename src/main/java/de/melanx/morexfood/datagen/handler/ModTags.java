@@ -41,18 +41,18 @@ public class ModTags extends ItemTagsProvider {
     @Override
     protected void addTags() {
         for (RegistryObject<Item> seed : Registry.SEEDS.getEntries()) {
-            tag(SEEDS).add(seed.get());
-            tag(Tags.Items.SEEDS).add(seed.get());
+            this.tag(SEEDS).add(seed.get());
+            this.tag(Tags.Items.SEEDS).add(seed.get());
         }
 
-        tag(AGARICUS_SEEDS).add(Registry.agaricus_seed.get());
-        tag(ASPARAGUS_SEEDS).add(Registry.asparagus_seed.get());
-        tag(PEAS_SEEDS).add(Registry.peas_seed.get());
-        tag(RICE_SEEDS).add(Registry.rice_seed.get());
+        this.tag(AGARICUS_SEEDS).add(Registry.agaricus_seed.get());
+        this.tag(ASPARAGUS_SEEDS).add(Registry.asparagus_seed.get());
+        this.tag(PEAS_SEEDS).add(Registry.peas_seed.get());
+        this.tag(RICE_SEEDS).add(Registry.rice_seed.get());
 
         for (RegistryObject<Item> food : Registry.FOOD.getEntries())
-            tag(FOOD).add(food.get());
-        tag(FOOD).add(Items.APPLE, Items.MUSHROOM_STEW, Items.BREAD, Items.PORKCHOP,
+            this.tag(FOOD).add(food.get());
+        this.tag(FOOD).add(Items.APPLE, Items.MUSHROOM_STEW, Items.BREAD, Items.PORKCHOP,
                 Items.COOKED_PORKCHOP, Items.GOLDEN_APPLE, Items.ENCHANTED_GOLDEN_APPLE, Items.COD, Items.SALMON,
                 Items.TROPICAL_FISH, Items.PUFFERFISH, Items.COOKED_COD, Items.COOKED_SALMON, Items.COOKIE, Items.BEEF,
                 Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.ROTTEN_FLESH, Items.SPIDER_EYE,
@@ -61,6 +61,6 @@ public class ModTags extends ItemTagsProvider {
                 Items.COOKED_MUTTON, Items.CHORUS_FRUIT, Items.BEETROOT, Items.BEETROOT_SOUP, Items.SUSPICIOUS_STEW,
                 Items.SWEET_BERRIES);
 
-        tag(Tags.Items.MUSHROOMS).add(Registry.agaricus.get());
+        this.tag(Tags.Items.MUSHROOMS).add(Registry.agaricus.get());
     }
 }

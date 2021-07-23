@@ -59,12 +59,12 @@ public class ModLootTables extends LootTableProvider {
                 if (block instanceof BaseCrop) {
                     IntegerProperty property = ((BaseCrop) block).getAgeProperty();
                     LootItemCondition.Builder builder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(property, ((BaseCrop) block).getMaxAge()));
-                    add(block, (drop) -> {
+                    this.add(block, (drop) -> {
                         BaseCrop crop = (BaseCrop) block;
                         return createCropDrops(drop, crop.getDrop(), crop.getSeed().asItem(), builder);
                     });
                 } else {
-                    add(block, (drop) -> createSilkTouchDispatchTable(drop, applyExplosionDecay(drop, LootItem.lootTableItem(Registry.dust_salt.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0F, 5.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+                    this.add(block, (drop) -> createSilkTouchDispatchTable(drop, applyExplosionDecay(drop, LootItem.lootTableItem(Registry.dust_salt.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0F, 5.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
                 }
             }
         }

@@ -45,11 +45,8 @@ public class ConfigHandler {
 
     public static void loadConfig(ForgeConfigSpec spec, Path path) {
         MoreXFood.LOGGER.debug("Loading config file {}", path);
-
         final CommentedFileConfig configData = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.REPLACE).build();
-
         configData.load();
-
         spec.setConfig(configData);
     }
 

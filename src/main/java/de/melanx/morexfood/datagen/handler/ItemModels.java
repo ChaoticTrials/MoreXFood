@@ -17,35 +17,31 @@ public class ItemModels extends ItemModelProvider {
     @Override
     protected void registerModels() {
         for (RegistryObject<Item> item : Registry.ITEMS.getEntries()) {
-            generateItemModel(item.get());
+            this.generateItemModel(item.get());
         }
         for (RegistryObject<Item> item : Registry.FOOD.getEntries()) {
-            generateItemModel(item.get());
+            this.generateItemModel(item.get());
         }
         for (RegistryObject<Item> item : Registry.SEEDS.getEntries()) {
-            generateItemModel(item.get());
+            this.generateItemModel(item.get());
         }
         for (RegistryObject<Item> blockItem : Registry.BLOCK_ITEMS.getEntries()) {
-            generateBlockItemModel(blockItem.get());
+            this.generateBlockItemModel(blockItem.get());
         }
     }
 
     private void generateItemModel(Item item) {
-        getBuilder(getPath(item)).parent(getExistingFile(mcLoc("item/generated")))
-                .texture("layer0", "item/" + getPath(item));
+        this.getBuilder(this.getPath(item)).parent(this.getExistingFile(this.mcLoc("item/generated")))
+                .texture("layer0", "item/" + this.getPath(item));
     }
 
     private void generateBlockItemModel(Item item) {
-        getBuilder(getPath(item))
-                .parent(new ModelFile.UncheckedModelFile(modLoc("block/" + getPath(item))));
-    }
-
-    @Override
-    public String getName() {
-        return "Item Models";
+        this.getBuilder(this.getPath(item))
+                .parent(new ModelFile.UncheckedModelFile(this.modLoc("block/" + this.getPath(item))));
     }
 
     private String getPath(Item item) {
+        //noinspection ConstantConditions
         return item.getRegistryName().getPath();
     }
 }
