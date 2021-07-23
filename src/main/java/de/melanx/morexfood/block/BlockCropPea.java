@@ -1,16 +1,16 @@
 package de.melanx.morexfood.block;
 
 import de.melanx.morexfood.util.Registry;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.Item;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.IItemProvider;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 public class BlockCropPea extends BaseCrop {
-    private static final IntegerProperty PEAS_AGE = BlockStateProperties.AGE_0_5;
+    private static final IntegerProperty PEAS_AGE = BlockStateProperties.AGE_5;
 
     public BlockCropPea(Properties properties) {
         super(properties);
@@ -22,12 +22,12 @@ public class BlockCropPea extends BaseCrop {
     }
 
     @Override
-    public IItemProvider getSeedsItem() {
+    public ItemLike getBaseSeedId() {
         return Registry.peas_seed.get();
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(PEAS_AGE);
     }
 

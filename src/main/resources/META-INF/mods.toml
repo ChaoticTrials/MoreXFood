@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[34,)"
+loaderVersion = "[37,)"
 license = "Apache 2.0"
 
 [[mods]]
@@ -14,14 +14,14 @@ This is my first mod. It's for learning how to build a mod but it's a christmas 
 
 [[dependencies.morexfood]]
     modId="forge"
-    mandatory=true
-    versionRange="[34.0.3,)"
-    ordering="NONE"
+mandatory = true
+versionRange = "[37,)"
+ordering = "NONE"
     side="BOTH"
 
 [[dependencies.morexfood]]
     modId="minecraft"
-    mandatory=true
-    versionRange="[1.16.1,)"
-    ordering="NONE"
+mandatory = true
+versionRange = "[1.17.1,)"
+ordering = "NONE"
     side="BOTH"

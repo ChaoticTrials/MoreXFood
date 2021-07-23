@@ -3,14 +3,13 @@ package de.melanx.morexfood.world;
 import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.config.ConfigHandler;
 import de.melanx.morexfood.util.Registry;
-import net.minecraft.block.Block;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
@@ -19,9 +18,9 @@ import javax.annotation.Nullable;
 
 public class ModWorldGen {
 
-    private static final int minHeight = ConfigHandler.saltMinHeight.get();
-    private static final int maxHeight = ConfigHandler.saltMaxHeight.get();
-    private static final int veinsByChunk = ConfigHandler.saltVeinsByChunk.get();
+    private static final int MIN_HEIGHT = ConfigHandler.saltMinHeight.get();
+    private static final int MAX_HEIGHT = ConfigHandler.saltMaxHeight.get();
+    private static final int VEINS_BY_CHUNK = ConfigHandler.saltVeinsByChunk.get();
     private static ConfiguredFeature<?, ?> SALT_FEATURE;
 
     public static void init() {
@@ -36,22 +35,22 @@ public class ModWorldGen {
         }
     }
 
-    private static boolean isValidBiome(Biome.Category biomeCategory) {
-        return biomeCategory != Biome.Category.NETHER && biomeCategory != Biome.Category.THEEND;
+    private static boolean isValidBiome(Biome.BiomeCategory biomeCategory) {
+        return biomeCategory != Biome.BiomeCategory.NETHER && biomeCategory != Biome.BiomeCategory.THEEND;
     }
 
     private static void addFeature(BiomeGenerationSettingsBuilder generation, @Nullable ConfiguredFeature<?, ?> feature) {
         if (feature != null) {
-            generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, feature);
+            generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, feature);
         }
     }
 
     @Nonnull
-    private static ConfiguredFeature<?, ?> getFeature(Block block, Feature<OreFeatureConfig> feature) {
-        return feature.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-                block.getDefaultState(), 6))
-                .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight - minHeight)))
-                .square()
-                .func_242731_b(veinsByChunk);
+    private static ConfiguredFeature<?, ?> getFeature(Block block, @SuppressWarnings("SameParameterValue") Feature<OreConfiguration> feature) {
+        return feature.configured(new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE,
+                block.defaultBlockState(), 6))
+                .rangeUniform(VerticalAnchor.aboveBottom(MIN_HEIGHT), VerticalAnchor.belowTop(MAX_HEIGHT))
+                .squared()
+                .count(VEINS_BY_CHUNK);
     }
 }

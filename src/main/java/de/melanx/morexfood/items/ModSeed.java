@@ -1,14 +1,15 @@
 package de.melanx.morexfood.items;
 
 import de.melanx.morexfood.util.IModSeed;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.block.Block;
 
-public class ModSeed extends BlockNamedItem implements IModSeed {
+public class ModSeed extends ItemNameBlockItem implements IModSeed {
 
     Item crop;
     Block cropBlock;
+
     public ModSeed(Block block, Item crop, Block cropBlock, Properties properties) {
         super(block, properties);
         this.crop = crop;

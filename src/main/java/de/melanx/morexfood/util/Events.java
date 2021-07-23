@@ -3,32 +3,30 @@ package de.melanx.morexfood.util;
 import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.config.ConfigHandler;
 import de.melanx.morexfood.datagen.handler.ModTags;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.entity.passive.horse.HorseEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.network.play.server.SChangeBlockPacket;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.lwjgl.system.CallbackI;
 
 import java.util.Collections;
 import java.util.Random;
@@ -39,21 +37,21 @@ public class Events {
     @SubscribeEvent
     public static void onLivingDrops(LivingDropsEvent event) {
         LivingEntity deadEntity = event.getEntityLiving();
-        World world = deadEntity.getEntityWorld();
-        BlockPos position = deadEntity.getPosition();
+        Level level = deadEntity.getCommandSenderWorld();
+        BlockPos position = deadEntity.blockPosition();
         double x = position.getX();
         double y = position.getY();
         double z = position.getZ();
-        if (deadEntity instanceof HorseEntity) {
-            if (world.rand.nextDouble() <= 0.6D) {
-                int i = world.rand.nextInt(2);
+        if (deadEntity instanceof Horse) {
+            if (level.random.nextDouble() <= 0.6D) {
+                int i = level.random.nextInt(2);
                 for (int j = 0; j <= i; j++)
-                    event.getDrops().add(new ItemEntity(world, x, y, z, new ItemStack(Registry.horse_meat.get())));
+                    event.getDrops().add(new ItemEntity(level, x, y, z, new ItemStack(Registry.horse_meat.get())));
             }
         }
-        if (deadEntity instanceof WolfEntity) {
-            if (world.rand.nextDouble() <= 0.4D) {
-                event.getDrops().add(new ItemEntity(world, x, y, z, new ItemStack(Registry.dog_goulash_raw.get())));
+        if (deadEntity instanceof Wolf) {
+            if (level.random.nextDouble() <= 0.4D) {
+                event.getDrops().add(new ItemEntity(level, x, y, z, new ItemStack(Registry.dog_goulash_raw.get())));
             }
         }
     }
@@ -61,17 +59,17 @@ public class Events {
     @SubscribeEvent
     public static void onGrassBroken(BlockEvent.BreakEvent event) {
         Block block = event.getState().getBlock();
-        IWorld world = event.getWorld();
-        PlayerEntity player = event.getPlayer();
+        LevelAccessor level = event.getWorld();
+        Player player = event.getPlayer();
         BlockPos pos = event.getPos();
 
-        if (!world.isRemote()) {
+        if (!level.isClientSide()) {
             if (ConfigHandler.seedDrops.get())
-                if (player.getHeldItemMainhand().getItem() != Items.SHEARS || !player.isCreative()) {
+                if (player.getMainHandItem().getItem() != Items.SHEARS || !player.isCreative()) {
                     if (block == Blocks.GRASS || block == Blocks.TALL_GRASS || block == Blocks.FERN) {
                         Item seed = ModTags.SEEDS.getRandomElement(new Random());
                         if (Math.random() <= (double) ConfigHandler.seedDropChance.get() / 100) {
-                            dropItem(world, pos, seed);
+                            dropItem(level, pos, seed);
                         }
                     }
                 }
@@ -80,34 +78,34 @@ public class Events {
     
     @SubscribeEvent
     public static void activateBlock(PlayerInteractEvent.RightClickBlock event) {
-        World world = event.getWorld();
+        Level level = event.getWorld();
         BlockPos pos = event.getPos();
-        BlockState state = world.getBlockState(pos);
-        PlayerEntity player = event.getPlayer();
+        BlockState state = level.getBlockState(pos);
+        Player player = event.getPlayer();
         ItemStack stack = event.getItemStack();
-        if (!world.isRemote) {
-            if (state.getBlock() instanceof CropsBlock) {
-                IntegerProperty property = ((CropsBlock) state.getBlock()).getAgeProperty();
-                if (state.get(property) >= Collections.max(property.getAllowedValues())) {
-                    state.getBlock().harvestBlock(world, player, pos, state, null, stack);
+        if (!level.isClientSide) {
+            if (state.getBlock() instanceof CropBlock) {
+                IntegerProperty property = ((CropBlock) state.getBlock()).getAgeProperty();
+                if (state.getValue(property) >= Collections.max(property.getPossibleValues())) {
+                    state.getBlock().playerDestroy(level, player, pos, state, null, stack);
 
-                    Block.getDrops(state, (ServerWorld) world, pos, null, player, stack).forEach(stackToSpawn -> {
+                    Block.getDrops(state, (ServerLevel) level, pos, null, player, stack).forEach(stackToSpawn -> {
                         if (stackToSpawn.getItem() == state.getBlock().asItem()) {
                             stackToSpawn.shrink(1);
                         }
-                        Block.spawnAsEntity(world, pos, stackToSpawn);
-                        state.spawnAdditionalDrops((ServerWorld) world, pos, stack);
+                        Block.popResource(level, pos, stackToSpawn);
+                        state.spawnAfterBreak((ServerLevel) level, pos, stack);
                     });
 
-                    world.setBlockState(pos, state.with(property, 0));
-                    ((ServerPlayerEntity) player).connection.sendPacket(new SChangeBlockPacket(world, pos));
+                    level.setBlockAndUpdate(pos, state.setValue(property, 0));
+                    ((ServerPlayer) player).connection.send(new ClientboundBlockUpdatePacket(level, pos));
                 }
             }
         }
     }
 
-    private static void dropItem(IWorld world, BlockPos pos, Item item) {
-        world.setBlockState(pos, Blocks.AIR.getDefaultState(), 2);
-        world.addEntity(new ItemEntity((World) world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(item)));
+    private static void dropItem(LevelAccessor level, BlockPos pos, Item item) {
+        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+        level.addFreshEntity(new ItemEntity((Level) level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(item)));
     }
 }

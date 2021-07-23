@@ -1,7 +1,7 @@
 package de.melanx.morexfood.items;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class ItemKnife extends Item {
     public ItemKnife(Item.Properties properties) {

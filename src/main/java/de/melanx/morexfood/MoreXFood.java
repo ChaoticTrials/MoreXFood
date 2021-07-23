@@ -5,20 +5,20 @@ import de.melanx.morexfood.util.CreativeTab;
 import de.melanx.morexfood.util.Events;
 import de.melanx.morexfood.util.Registry;
 import de.melanx.morexfood.world.ModWorldGen;
-import net.minecraft.block.Block;
-import net.minecraft.block.CropsBlock;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -50,12 +50,12 @@ public class MoreXFood {
     }
 
     private void registerRenderType(FMLClientSetupEvent event) {
-        RenderType cutout = RenderType.getCutout();
+        RenderType cutout = RenderType.cutout();
 
         for (RegistryObject<Block> registryObject : Registry.BLOCKS.getEntries()) {
             Block block = registryObject.get();
-            if (block instanceof CropsBlock) {
-                RenderTypeLookup.setRenderLayer(block, cutout);
+            if (block instanceof CropBlock) {
+                ItemBlockRenderTypes.setRenderLayer(block, cutout);
             }
         }
     }

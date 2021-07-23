@@ -4,15 +4,15 @@ import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.block.BaseCrop;
 import de.melanx.morexfood.block.OreSalt;
 import de.melanx.morexfood.util.Registry;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.state.IntegerProperty;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fmllegacy.RegistryObject;
 
 public class BlockStates extends BlockStateProvider {
 
@@ -39,7 +39,7 @@ public class BlockStates extends BlockStateProvider {
     private ModelFile model(Block block, BlockState state) {
         String name = block.getRegistryName().getPath();
         IntegerProperty properties = ((BaseCrop) state.getBlock()).getAgeProperty();
-        name = name + "_" + state.get(properties);
-        return models().crop(name, modLoc(String.format("block/%s", name, state.get(properties))));
+        name = name + "_" + state.getValue(properties);
+        return models().crop(name, modLoc(String.format("block/%s", name, state.getValue(properties))));
     }
 }

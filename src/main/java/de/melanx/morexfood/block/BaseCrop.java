@@ -1,12 +1,12 @@
 package de.melanx.morexfood.block;
 
-import net.minecraft.block.CropsBlock;
-import net.minecraft.item.Item;
-import net.minecraft.util.IItemProvider;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.CropBlock;
 
 import java.util.Collections;
 
-public class BaseCrop extends CropsBlock {
+public class BaseCrop extends CropBlock {
 
     public BaseCrop(Properties builder) {
         super(builder);
@@ -18,10 +18,10 @@ public class BaseCrop extends CropsBlock {
 
     @Override
     public int getMaxAge() {
-        return Collections.max(this.getAgeProperty().getAllowedValues());
+        return Collections.max(this.getAgeProperty().getPossibleValues());
     }
 
-    public IItemProvider getSeed() {
-        return this.getSeedsItem();
+    public ItemLike getSeed() {
+        return this.getBaseSeedId();
     }
 }
