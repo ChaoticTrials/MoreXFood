@@ -3,7 +3,7 @@ package de.melanx.morexfood.datagen.handler;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import de.melanx.morexfood.block.BaseCrop;
-import de.melanx.morexfood.util.Registry;
+import de.melanx.morexfood.util.ModRegistration;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.BlockLoot;
@@ -54,7 +54,7 @@ public class ModLootTables extends LootTableProvider {
     private static class BlockTable extends BlockLoot {
         @Override
         protected void addTables() {
-            for (RegistryObject<Block> blockRegistry : Registry.BLOCKS.getEntries()) {
+            for (RegistryObject<Block> blockRegistry : ModRegistration.BLOCKS.getEntries()) {
                 Block block = blockRegistry.get();
                 if (block instanceof BaseCrop) {
                     IntegerProperty property = ((BaseCrop) block).getAgeProperty();
@@ -64,7 +64,7 @@ public class ModLootTables extends LootTableProvider {
                         return createCropDrops(drop, crop.getDrop(), crop.getSeed().asItem(), builder);
                     });
                 } else {
-                    this.add(block, (drop) -> createSilkTouchDispatchTable(drop, applyExplosionDecay(drop, LootItem.lootTableItem(Registry.dust_salt.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0F, 5.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+                    this.add(block, (drop) -> createSilkTouchDispatchTable(drop, applyExplosionDecay(drop, LootItem.lootTableItem(ModRegistration.dust_salt.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(4.0F, 5.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
                 }
             }
         }
@@ -72,7 +72,7 @@ public class ModLootTables extends LootTableProvider {
         @Nonnull
         @Override
         protected Iterable<Block> getKnownBlocks() {
-            return Registry.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+            return ModRegistration.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
         }
     }
 }

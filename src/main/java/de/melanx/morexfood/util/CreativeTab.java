@@ -15,6 +15,6 @@ public class CreativeTab extends CreativeModeTab {
     @Nonnull
     @Override
     public ItemStack makeIcon() {
-        return new ItemStack(Registry.chicken_fricassee_special.get());
+        return new ItemStack(ModRegistration.chicken_fricassee_special.get());
     }
 }

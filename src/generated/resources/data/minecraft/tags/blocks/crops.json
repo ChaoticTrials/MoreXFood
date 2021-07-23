@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "morexfood:crop_agaricus",
+    "morexfood:crop_asparagus",
+    "morexfood:crop_peas",
+    "morexfood:crop_rice"
+  ]
+}

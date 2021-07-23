@@ -2,7 +2,7 @@ package de.melanx.morexfood.world;
 
 import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.config.ConfigHandler;
-import de.melanx.morexfood.util.Registry;
+import de.melanx.morexfood.util.ModRegistration;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -24,7 +24,7 @@ public class ModWorldGen {
     private static ConfiguredFeature<?, ?> SALT_FEATURE;
 
     public static void init() {
-        SALT_FEATURE = getFeature(Registry.salt_ore.get(), Feature.ORE);
+        SALT_FEATURE = getFeature(ModRegistration.salt_ore.get(), Feature.ORE);
         MoreXFood.LOGGER.info("Registering ore generation");
     }
 

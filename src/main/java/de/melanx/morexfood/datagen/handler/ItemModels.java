@@ -1,7 +1,7 @@
 package de.melanx.morexfood.datagen.handler;
 
 import de.melanx.morexfood.MoreXFood;
-import de.melanx.morexfood.util.Registry;
+import de.melanx.morexfood.util.ModRegistration;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -16,16 +16,16 @@ public class ItemModels extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        for (RegistryObject<Item> item : Registry.ITEMS.getEntries()) {
+        for (RegistryObject<Item> item : ModRegistration.ITEMS.getEntries()) {
             this.generateItemModel(item.get());
         }
-        for (RegistryObject<Item> item : Registry.FOOD.getEntries()) {
+        for (RegistryObject<Item> item : ModRegistration.FOOD.getEntries()) {
             this.generateItemModel(item.get());
         }
-        for (RegistryObject<Item> item : Registry.SEEDS.getEntries()) {
+        for (RegistryObject<Item> item : ModRegistration.SEEDS.getEntries()) {
             this.generateItemModel(item.get());
         }
-        for (RegistryObject<Item> blockItem : Registry.BLOCK_ITEMS.getEntries()) {
+        for (RegistryObject<Item> blockItem : ModRegistration.BLOCK_ITEMS.getEntries()) {
             this.generateBlockItemModel(blockItem.get());
         }
     }

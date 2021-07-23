@@ -3,7 +3,7 @@ package de.melanx.morexfood.datagen.handler;
 import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.block.BaseCrop;
 import de.melanx.morexfood.block.OreSalt;
-import de.melanx.morexfood.util.Registry;
+import de.melanx.morexfood.util.ModRegistration;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,7 +22,7 @@ public class BlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        for (RegistryObject<Block> blockRegistry : Registry.BLOCKS.getEntries()) {
+        for (RegistryObject<Block> blockRegistry : ModRegistration.BLOCKS.getEntries()) {
             Block block = blockRegistry.get();
             if (!(block instanceof OreSalt))
                 this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(this.model(block, state)).build());

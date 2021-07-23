@@ -19,7 +19,9 @@ public class DataCreator {
         if (event.includeServer()) {
             generator.addProvider(new ModLootTables(generator));
             generator.addProvider(new Recipes(generator));
-            generator.addProvider(new ModTags(generator, helper));
+            ModTags.ModBlocks blockTagsProvider = new ModTags.ModBlocks(generator, helper);
+            generator.addProvider(blockTagsProvider);
+            generator.addProvider(new ModTags.ModItems(generator, blockTagsProvider, helper));
         }
         if (event.includeClient()) {
             generator.addProvider(new ItemModels(generator, helper));

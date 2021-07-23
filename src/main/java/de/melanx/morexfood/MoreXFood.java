@@ -3,7 +3,7 @@ package de.melanx.morexfood;
 import de.melanx.morexfood.config.ConfigHandler;
 import de.melanx.morexfood.util.CreativeTab;
 import de.melanx.morexfood.util.Events;
-import de.melanx.morexfood.util.Registry;
+import de.melanx.morexfood.util.ModRegistration;
 import de.melanx.morexfood.world.ModWorldGen;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -36,11 +36,11 @@ public class MoreXFood {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.COMMON_CONFIG);
         ConfigHandler.loadConfig(ConfigHandler.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-common.toml"));
 
-        Registry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Registry.FOOD.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Registry.SEEDS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Registry.BLOCK_ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Registry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModRegistration.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModRegistration.FOOD.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModRegistration.SEEDS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModRegistration.BLOCK_ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModRegistration.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(Events.class);
@@ -52,7 +52,7 @@ public class MoreXFood {
     private void registerRenderType(FMLClientSetupEvent event) {
         RenderType cutout = RenderType.cutout();
 
-        for (RegistryObject<Block> registryObject : Registry.BLOCKS.getEntries()) {
+        for (RegistryObject<Block> registryObject : ModRegistration.BLOCKS.getEntries()) {
             Block block = registryObject.get();
             if (block instanceof CropBlock) {
                 ItemBlockRenderTypes.setRenderLayer(block, cutout);

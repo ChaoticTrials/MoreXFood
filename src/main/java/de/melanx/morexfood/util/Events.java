@@ -46,12 +46,12 @@ public class Events {
             if (level.random.nextDouble() <= 0.6D) {
                 int i = level.random.nextInt(2);
                 for (int j = 0; j <= i; j++)
-                    event.getDrops().add(new ItemEntity(level, x, y, z, new ItemStack(Registry.horse_meat.get())));
+                    event.getDrops().add(new ItemEntity(level, x, y, z, new ItemStack(ModRegistration.horse_meat.get())));
             }
         }
         if (deadEntity instanceof Wolf) {
             if (level.random.nextDouble() <= 0.4D) {
-                event.getDrops().add(new ItemEntity(level, x, y, z, new ItemStack(Registry.dog_goulash_raw.get())));
+                event.getDrops().add(new ItemEntity(level, x, y, z, new ItemStack(ModRegistration.dog_goulash_raw.get())));
             }
         }
     }
@@ -67,7 +67,7 @@ public class Events {
             if (ConfigHandler.seedDrops.get())
                 if (player.getMainHandItem().getItem() != Items.SHEARS || !player.isCreative()) {
                     if (block == Blocks.GRASS || block == Blocks.TALL_GRASS || block == Blocks.FERN) {
-                        Item seed = ModTags.SEEDS.getRandomElement(new Random());
+                        Item seed = ModTags.ModItems.SEEDS.getRandomElement(new Random());
                         if (Math.random() <= (double) ConfigHandler.seedDropChance.get() / 100) {
                             dropItem(level, pos, seed);
                         }

@@ -1,6 +1,6 @@
 package de.melanx.morexfood.block;
 
-import de.melanx.morexfood.util.Registry;
+import de.melanx.morexfood.util.ModRegistration;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -27,7 +27,7 @@ public class BlockCropPea extends BaseCrop {
     @Nonnull
     @Override
     public ItemLike getBaseSeedId() {
-        return Registry.peas_seed.get();
+        return ModRegistration.peas_seed.get();
     }
 
     @Override
@@ -37,6 +37,6 @@ public class BlockCropPea extends BaseCrop {
 
     @Override
     public Item getDrop() {
-        return Registry.peas.get();
+        return ModRegistration.peas.get();
     }
 }
