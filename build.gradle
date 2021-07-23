@@ -111,13 +111,12 @@ publishing {
             artifactId = project.archivesBaseName
             version = project.version
             artifact jar
-            artifact sourcesJar
 
             pom {
                 licenses {
                     license {
-                        name = "MIT License"
-                        url = "https://opensource.org/licenses/MIT"
+                        name = "The Apache License, Version 2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
             }
@@ -162,31 +161,6 @@ curseforge {
 
             versions.each {
                 addGameVersion "${it}"
-            }
-
-            if (project.hasProperty('curse_requirements') || project.hasProperty('curse_optionals')) {
-
-                mainArtifact(jar) {
-
-                    relations {
-
-                        if (project.hasProperty('curse_requirements')) {
-                            def requirements = "${curse_requirements}".split(', ')
-                            requirements.each {
-
-                                requiredLibrary "${it}"
-                            }
-                        }
-
-                        if (project.hasProperty('curse_optionals')) {
-                            def optionals = "${curse_optionals}".split(', ')
-                            optionals.each {
-
-                                optionalLibrary "${it}"
-                            }
-                        }
-                    }
-                }
             }
 
             addArtifact(sourcesJar)

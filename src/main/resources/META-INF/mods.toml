@@ -1,16 +1,17 @@
-modLoader="javafml"
-loaderVersion="[32,)"
-license="MIT License"
+modLoader = "javafml"
+loaderVersion = "[34,)"
+license = "Apache 2.0"
 
 [[mods]]
-modId="morexfood"
-version="${file.jarVersion}"
-displayName="More XFood"
-updateJSONURL="https://raw.githubusercontent.com/MelanX/mod-updatechecker-files/master/morexfood.json"
-authors="MelanX"
-description='''
+modId = "morexfood"
+version = "${file.jarVersion}"
+displayName = "More XFood"
+updateJSONURL = "https://raw.githubusercontent.com/MelanX/mod-updatechecker-files/master/morexfood.json"
+authors = "MelanX"
+description = '''
 This is my first mod. It's for learning how to build a mod but it's a christmas present for my girlfriend, too. It adds her favourite food and a few ingredients for this.
 '''
+
 [[dependencies.morexfood]]
     modId="forge"
     mandatory=true
