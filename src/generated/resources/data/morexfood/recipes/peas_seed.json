@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "morexfood:peas"
+      "item": "morexfood:peas_seed"
     }
   ],
   "result": {

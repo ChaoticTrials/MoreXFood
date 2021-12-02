@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "morexfood:knife"
+            "items": [
+              "morexfood:knife"
+            ]
           }
         ]
       }

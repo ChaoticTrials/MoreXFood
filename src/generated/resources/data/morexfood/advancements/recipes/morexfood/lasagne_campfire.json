@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "morexfood:horse_meat"
+            "items": [
+              "morexfood:horse_meat"
+            ]
           }
         ]
       }

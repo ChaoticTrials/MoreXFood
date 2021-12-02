@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "morexfood:agaricus"
+            "items": [
+              "morexfood:agaricus_seed"
+            ]
           }
         ]
       }

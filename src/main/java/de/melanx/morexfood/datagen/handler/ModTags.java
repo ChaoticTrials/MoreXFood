@@ -85,7 +85,8 @@ public class ModTags {
                     this.tag(BlockTags.CROPS).add(crop);
                 } else {
                     this.tag(Tags.Blocks.ORES).add(block.get());
-                    this.tag(BlockTags.NEEDS_STONE_TOOL);
+                    this.tag(BlockTags.NEEDS_STONE_TOOL).add(block.get());
+                    this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block.get());
                 }
             }
         }

@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "morexfood:dog_meat_raw"
+            "items": [
+              "morexfood:dog_meat_raw"
+            ]
           }
         ]
       }

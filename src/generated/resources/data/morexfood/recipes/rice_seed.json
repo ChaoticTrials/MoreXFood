@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "morexfood:rice"
+      "item": "morexfood:rice_seed"
     }
   ],
   "result": {
