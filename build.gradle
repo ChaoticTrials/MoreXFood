@@ -1,8 +1,8 @@
 buildscript {
-    apply from: 'https://raw.githubusercontent.com/noeppi-noeppi/ModUtils/v2/buildscript.gradle', to: buildscript
+    apply from: 'https://noeppi-noeppi.github.io/ModUtils/v3/buildscript.gradle', to: buildscript
 }
 
-apply from: 'https://raw.githubusercontent.com/noeppi-noeppi/ModUtils/v2/mod.gradle'
+apply from: 'https://noeppi-noeppi.github.io/ModUtils/v3/mod.gradle'
 
 repositories {
     maven {
@@ -21,8 +21,6 @@ repositories {
 }
 
 dependencies {
-    implementation('cpw.mods:securejarhandler') { version { strictly '0.9.45' } }
-
 //    runtimeOnly fg.deobf("mezz.jei:jei-1.16.3:7.3+") TODO re-add
 //    compileOnly fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:1.16.3-4+") TODO re-add
 //    runtimeOnly fg.deobf("de.melanx.recipeprinter:recipeprinter-1.16.3:1.1+")

@@ -3,7 +3,7 @@
 pipeline {
     agent any
     tools {
-      jdk 'java16'
+      jdk 'java17'
     }
     stages {
         stage('Clean') {
@@ -32,6 +32,13 @@ pipeline {
             steps {
                 echo 'Uploading to CurseForge'
                 sh './gradlew curseforge'
+            }
+        }
+
+        stage('Upload artifacts to Modrinth') {
+            steps {
+                echo 'Uploading to Modrinth'
+                sh './gradlew modrinth'
             }
         }
 

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
 
@@ -80,12 +80,14 @@ public class ModTags {
 
         @Override
         protected void addTags() {
-            for (RegistryObject<Block> block : ModRegistration.BLOCKS.getEntries()) {
-                if (block.get() instanceof CropBlock crop) {
+            for (RegistryObject<Block> object : ModRegistration.BLOCKS.getEntries()) {
+                Block block = object.get();
+                if (block instanceof CropBlock crop) {
                     this.tag(BlockTags.CROPS).add(crop);
                 } else {
-                    this.tag(Tags.Blocks.ORES).add(block.get());
-                    this.tag(BlockTags.NEEDS_STONE_TOOL);
+                    this.tag(Tags.Blocks.ORES).add(block);
+                    this.tag(BlockTags.NEEDS_STONE_TOOL).add(block);
+                    this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block);
                 }
             }
         }

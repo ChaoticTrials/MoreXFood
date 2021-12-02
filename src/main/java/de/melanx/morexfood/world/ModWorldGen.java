@@ -3,25 +3,24 @@ package de.melanx.morexfood.world;
 import de.melanx.morexfood.MoreXFood;
 import de.melanx.morexfood.config.ConfigHandler;
 import de.melanx.morexfood.util.ModRegistration;
+import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class ModWorldGen {
 
-    private static final int MIN_HEIGHT = ConfigHandler.saltMinHeight.get();
-    private static final int MAX_HEIGHT = ConfigHandler.saltMaxHeight.get();
-    private static final int VEINS_BY_CHUNK = ConfigHandler.saltVeinsByChunk.get();
-    private static ConfiguredFeature<?, ?> SALT_FEATURE;
+    private static PlacedFeature SALT_FEATURE;
 
     public static void init() {
         SALT_FEATURE = getFeature(ModRegistration.salt_ore.get(), Feature.ORE);
@@ -39,7 +38,7 @@ public class ModWorldGen {
         return biomeCategory != Biome.BiomeCategory.NETHER && biomeCategory != Biome.BiomeCategory.THEEND;
     }
 
-    private static void addFeature(BiomeGenerationSettingsBuilder generation, @Nullable ConfiguredFeature<?, ?> feature) {
+    private static void addFeature(BiomeGenerationSettingsBuilder generation, @Nullable PlacedFeature feature) {
         if (feature != null) {
             generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, feature);
         }
@@ -47,11 +46,17 @@ public class ModWorldGen {
 
     @SuppressWarnings("SameParameterValue")
     @Nonnull
-    private static ConfiguredFeature<?, ?> getFeature(Block block, Feature<OreConfiguration> feature) {
-        return feature.configured(new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE,
-                block.defaultBlockState(), 10))
-                .rangeUniform(VerticalAnchor.aboveBottom(MIN_HEIGHT), VerticalAnchor.belowTop(MAX_HEIGHT))
-                .squared()
-                .count(VEINS_BY_CHUNK);
+    private static PlacedFeature getFeature(Block block, Feature<OreConfiguration> feature) {
+        return feature.configured(new OreConfiguration(OreFeatures.NATURAL_STONE,
+                        block.defaultBlockState(), 10))
+                .placed(
+                        List.of(
+                                CountPlacement.of(40),
+                                InSquarePlacement.spread(),
+                                HeightRangePlacement.uniform(VerticalAnchor.absolute(ConfigHandler.saltMinHeight.get()),
+                                        VerticalAnchor.absolute(ConfigHandler.saltMaxHeight.get())),
+                                BiomeFilter.biome()
+                        )
+                );
     }
 }
