@@ -47,7 +47,7 @@ public class ModWorldGen {
     @SuppressWarnings("SameParameterValue")
     @Nonnull
     private static PlacedFeature getFeature(Block block, Feature<OreConfiguration> feature) {
-        return feature.configured(new OreConfiguration(OreFeatures.NATURAL_STONE,
+        return feature.configured(new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES,
                         block.defaultBlockState(), 10))
                 .placed(
                         List.of(
