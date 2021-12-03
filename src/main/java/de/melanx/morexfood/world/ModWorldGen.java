@@ -48,7 +48,7 @@ public class ModWorldGen {
     @Nonnull
     private static PlacedFeature getFeature(Block block, Feature<OreConfiguration> feature) {
         return feature.configured(new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES,
-                        block.defaultBlockState(), 10))
+                        block.defaultBlockState(), ConfigHandler.veinSize.get()))
                 .placed(
                         List.of(
                                 CountPlacement.of(40),
