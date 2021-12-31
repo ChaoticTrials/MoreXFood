@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-//    runtimeOnly fg.deobf("mezz.jei:jei-1.16.3:7.3+") TODO re-add
-//    compileOnly fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:1.16.3-4+") TODO re-add
+    runtimeOnly fg.deobf("mezz.jei:jei-1.18.1:9.1.1.48")
+    implementation fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:1.18.1-7.0.1-144")
 //    runtimeOnly fg.deobf("de.melanx.recipeprinter:recipeprinter-1.16.3:1.1+")
 }
